@@ -1,26 +1,27 @@
 # KubeLoop
 
-[![CI](https://github.com/fengqi-dev/kube-loop/actions/workflows/ci.yml/badge.svg)](https://github.com/fengqi-dev/kube-loop/actions/workflows/ci.yml)
-[![Release](https://github.com/fengqi-dev/kube-loop/actions/workflows/release.yml/badge.svg)](https://github.com/fengqi-dev/kube-loop/actions/workflows/release.yml)
-[![Latest release](https://img.shields.io/github/v/release/fengqi-dev/kube-loop)](https://github.com/fengqi-dev/kube-loop/releases/latest)
+[![CI](https://github.com/fqix/kube-loop/actions/workflows/ci.yml/badge.svg)](https://github.com/fqix/kube-loop/actions/workflows/ci.yml)
+[![Release](https://github.com/fqix/kube-loop/actions/workflows/release.yml/badge.svg)](https://github.com/fqix/kube-loop/actions/workflows/release.yml)
+[![Latest release](https://img.shields.io/github/v/release/fqix/kube-loop)](https://github.com/fqix/kube-loop/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [English](README.md) · [简体中文](README_zh-CN.md)
 
-**[Website](https://fengqi-dev.github.io/kube-loop/)** ·
-**[Download](https://github.com/fengqi-dev/kube-loop/releases/latest)** ·
+**[Website](https://fqix.github.io/kube-loop/)** ·
+**[Download](https://github.com/fqix/kube-loop/releases/latest)** ·
 **[Design](docs/design.md)**
 
 KubeLoop is a desktop network tool for Kubernetes development. It connects a
 workstation to cluster networking so browsers, IDEs, CLIs, and SDKs can reach
-Pod IPs, ClusterIP Services, and cluster DNS directly — no VPN, no public
-ingress.
+Pod IPs, ClusterIP Services, and cluster DNS directly, without exposing each
+workload through its own Ingress. The client must be able to reach the KubeLoop
+Server API and Data Plane WebSocket endpoint over the network.
 
 ## Why KubeLoop
 
 - **Transparent cluster access** — use real cluster addresses from ordinary local applications.
 - **No kubeconfig or `kubectl` dependency** — the desktop app signs in to a KubeLoop Server and never embeds Kubernetes credentials.
-- **No public cluster ingress** — RelayTicket-authenticated WebSockets carry traffic to an assigned Data Plane.
+- **No per-workload Ingress required** — RelayTicket-authenticated WebSockets carry traffic through a reachable KubeLoop endpoint to an assigned Data Plane.
 - **Focused routing** — only discovered or configured Kubernetes routes enter the tunnel.
 - **Local iteration tools** — Port Forward, Exchange, Mirror, and Preview cover outbound and inbound traffic.
 - **Desktop workflow** — inspect workloads, use Pod SSH/SFTP, transfer files, and diagnose connections in one UI.
@@ -33,14 +34,19 @@ ingress.
 Requirements:
 
 - Kubernetes 1.25 or later and Helm 3
-- A hostname routed to a Kubernetes Ingress controller
+- For the Ingress-based example below, a client-reachable hostname routed to a Kubernetes Ingress controller
+
+KubeLoop needs a reachable HTTP(S) API and WebSocket entry point. It can be
+private or public, depending on where clients connect from. Ingress is one
+option; the chart also supports Gateway API HTTPRoute. You do not need to
+expose each application Service separately.
 
 Install the released OCI chart. Helm generates and retains the RelayTicket
 signing key and internal Relay Registry TLS Secret by default:
 
 ```bash
 helm upgrade --install kubeloop \
-  oci://ghcr.io/fengqi-dev/kube-loop/charts/kubeloop \
+  oci://ghcr.io/fqix/kube-loop/charts/kubeloop \
   --version 3.0.0 \
   --namespace kubeloop-system \
   --create-namespace \
@@ -48,6 +54,9 @@ helm upgrade --install kubeloop \
   --set ingress.enabled=true \
   --set ingress.host=kubeloop.example.com \
   --set ingress.className=nginx \
+  --set controlPlane.image.repository=ghcr.io/fqix/kube-loop/control-plane \
+  --set dataPlane.image.repository=ghcr.io/fqix/kube-loop/gateway \
+  --set operator.image.repository=ghcr.io/fqix/kube-loop/operator \
   --wait
 ```
 
@@ -61,6 +70,11 @@ curl http://kubeloop.example.com/.well-known/kubeloop
 
 Ingress TLS is disabled by default. For HTTPS, set `publicURL` to `https://…`,
 set `ingress.tls.enabled=true`, and provide `ingress.tls.secretName`.
+
+For 3.0, upgrade the client, Gateway, and Control Plane together. Disabling
+Traffic Task Noise encryption does not restore compatibility with the 2.x
+transport or control protocol. RelayTicket TTL must be between 15 seconds and
+1 minute. Use HTTPS/WSS for connections over untrusted networks.
 
 Uninstall the workloads with:
 
@@ -78,14 +92,14 @@ external PostgreSQL/MySQL, upgrades, and complete cleanup.
 #### macOS and Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.sh | bash
 ```
 
 To select a version or Linux package format:
 
 ```bash
 VERSION=v3.0.0 PACKAGE=deb \
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.sh)"
 ```
 
 `PACKAGE` may be `deb`, `rpm`, or `tarball`.
@@ -96,18 +110,18 @@ or another package manager to release the dpkg lock. Override this with
 Homebrew is also supported:
 
 ```bash
-brew tap kube-loop/kubeloop https://github.com/fengqi-dev/kube-loop
+brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
 brew install --cask kube-loop/kubeloop/kubeloop-desktop
 ```
 
 #### Windows
 
 ```powershell
-irm https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.ps1 | iex
 ```
 
 DMG, NSIS, portable zip, deb, rpm, and tar.gz artifacts are available from
-[GitHub Releases](https://github.com/fengqi-dev/kube-loop/releases/latest).
+[GitHub Releases](https://github.com/fqix/kube-loop/releases/latest).
 Each release includes `SHA256SUMS`.
 
 ### Terminal client
@@ -118,16 +132,18 @@ resource workflows without requiring the desktop UI.
 On macOS or Linux:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install-tui.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.sh | bash
 ```
 
 On Windows:
 
 ```powershell
-irm https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install-tui.ps1 | iex
+irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.ps1 | iex
 ```
 
-Set `VERSION=v2.2.0` to install a specific release. The installers select the
+Set the `VERSION` environment variable (for example, `export VERSION=v3.0.0`
+in a POSIX shell or `$env:VERSION = "v3.0.0"` in PowerShell) before running the
+installer to select a specific release. The installers select the
 matching `kubeloop-tui-<version>-<os>-<arch>.tar.gz` archive and verify it using
 the release `SHA256SUMS` before installing `kubeloop` (`kubeloop.exe` on Windows).
 
@@ -141,7 +157,7 @@ Homebrew installs the `kubeloop-tui` Formula separately from the
 `kubeloop-desktop` Cask. The Formula still provides the `kubeloop` command:
 
 ```bash
-brew tap kube-loop/kubeloop https://github.com/fengqi-dev/kube-loop
+brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
 brew install --formula kube-loop/kubeloop/kubeloop-tui
 ```
 
@@ -152,7 +168,10 @@ brew install --formula kube-loop/kubeloop/kubeloop-tui
 3. Choose **SOCKS5 proxy** or **TUN mode**, then click **Connect**.
 4. For TUN only, approve installation of the local network Helper on first use.
 
-Once connected, use a ClusterIP, Pod IP, or cluster DNS name from any local application.
+In TUN mode, applications use the configured cluster routes and split DNS.
+In SOCKS5 mode, configure each application to use KubeLoop’s local SOCKS5 proxy;
+applications that do not use the proxy are unaffected. For cluster DNS names,
+use proxy-side name resolution (for example, `socks5h` in curl).
 
 ## Development workflows
 
@@ -180,7 +199,7 @@ Local applications
 
 The **Control Plane** owns authentication, policy, Cluster Session state, task
 ownership, and Kubernetes operations. The **Gateway** carries forward traffic
-over Trojan/WSS and reverse Tasks over the control WSS; it holds no Kubernetes
+over Trojan/WebSocket and reverse Tasks over the control WebSocket; it holds no Kubernetes
 credentials. The local
 **Helper** is used only by TUN mode to manage KubeLoop's sing-box process,
 interface, routes, split DNS, and recovery state; SOCKS mode requires no
@@ -198,7 +217,7 @@ to the active Cluster Session's Control Plane `pods/exec` task.
 
 - The SSH login name selects the container; it does not change the process user.
 - Interactive shells and remote commands require `/bin/sh`.
-- `scp` and `sftp` use the built-in SFTP adapter; transfers require `tar` in the container.
+- SFTP and modern `scp` clients using SFTP use the built-in adapter. The container needs `/bin/sh` and `tar`; listing and metadata operations also require commands such as `ls`, `chmod`, and `truncate`.
 - KubeLoop can create a missing `~/.ssh/id_ed25519` without overwriting an existing identity.
 - Disconnecting removes runtime-only SSH endpoints without modifying Pods.
 
@@ -222,7 +241,7 @@ policy and Kubernetes authorization.
 | `manage_file_transfer` | Start, list, or cancel local ↔ Pod transfers |
 | `manage_pod_files` | List, create, rename, or delete Pod files and directories |
 
-See the [website MCP guide](https://fengqi-dev.github.io/kube-loop/#/mcp) for setup.
+See the [website MCP guide](https://fqix.github.io/kube-loop/#/mcp) for setup.
 
 ## Build from source
 

@@ -1,25 +1,26 @@
 # KubeLoop
 
-[![CI](https://github.com/fengqi-dev/kube-loop/actions/workflows/ci.yml/badge.svg)](https://github.com/fengqi-dev/kube-loop/actions/workflows/ci.yml)
-[![Release](https://github.com/fengqi-dev/kube-loop/actions/workflows/release.yml/badge.svg)](https://github.com/fengqi-dev/kube-loop/actions/workflows/release.yml)
-[![Latest release](https://img.shields.io/github/v/release/fengqi-dev/kube-loop)](https://github.com/fengqi-dev/kube-loop/releases/latest)
+[![CI](https://github.com/fqix/kube-loop/actions/workflows/ci.yml/badge.svg)](https://github.com/fqix/kube-loop/actions/workflows/ci.yml)
+[![Release](https://github.com/fqix/kube-loop/actions/workflows/release.yml/badge.svg)](https://github.com/fqix/kube-loop/actions/workflows/release.yml)
+[![Latest release](https://img.shields.io/github/v/release/fqix/kube-loop)](https://github.com/fqix/kube-loop/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [English](README.md) · [简体中文](README_zh-CN.md)
 
-**[官网](https://fengqi-dev.github.io/kube-loop/)** ·
-**[下载](https://github.com/fengqi-dev/kube-loop/releases/latest)** ·
+**[官网](https://fqix.github.io/kube-loop/)** ·
+**[下载](https://github.com/fqix/kube-loop/releases/latest)** ·
 **[设计文档](docs/design.zh-CN.md)**
 
 KubeLoop 是面向 Kubernetes 开发的桌面网络工具。它将本地工作站接入集群网络，
-让浏览器、IDE、CLI 和 SDK 可以直接使用 Pod IP、ClusterIP Service 与集群 DNS
-——无需 VPN，无需公网入口。
+让浏览器、IDE、CLI 和 SDK 可以直接使用 Pod IP、ClusterIP Service 与集群 DNS，
+无需为每个业务配置独立的 Ingress。客户端仍需通过网络访问 KubeLoop Server API
+和 Data Plane WebSocket 入口。
 
 ## 为什么使用 KubeLoop
 
 - **透明访问集群**——普通本地应用可以直接使用真实的集群地址。
 - **不依赖 kubeconfig 或 `kubectl`**——桌面应用登录 KubeLoop Server，不持有 Kubernetes 凭据。
-- **无需公网集群入口**——通过 RelayTicket 认证的 WebSocket 将流量送达分配的 Data Plane。
+- **无需逐个暴露业务**——通过客户端可达的 KubeLoop 入口，以 RelayTicket 认证的 WebSocket 将流量送达分配的 Data Plane。
 - **聚焦路由**——只有自动发现或手工配置的 Kubernetes 网段进入隧道。
 - **本地迭代工具**——Port Forward、Exchange、Mirror 与 Preview 覆盖出站和入站流量。
 - **流量检查**——通过代理拦截并解析实时 HTTP 与 gRPC 流量，自动生成 `curl`/`grpcurl` 复现命令，支持导入 `.proto` Schema 解码。
@@ -33,14 +34,18 @@ KubeLoop 是面向 Kubernetes 开发的桌面网络工具。它将本地工作�
 前置条件：
 
 - Kubernetes 1.25 或更高版本，以及 Helm 3
-- 已路由到 Kubernetes Ingress Controller 的域名
+- 以下 Ingress 部署示例需要一个客户端可达、已路由到 Kubernetes Ingress Controller 的域名
+
+KubeLoop 需要客户端可达的 HTTP(S) API 和 WebSocket 入口；根据客户端所在网络，
+入口可以是内网地址，也可以是公网地址。Ingress 是一种接入方式，Chart 也支持
+Gateway API HTTPRoute，无需为每个业务 Service 单独配置入口。
 
 安装已发布的 OCI Chart。默认情况下，Helm 会自动生成并保留 RelayTicket
 签名密钥与内部 Relay Registry TLS Secret：
 
 ```bash
 helm upgrade --install kubeloop \
-  oci://ghcr.io/fengqi-dev/kube-loop/charts/kubeloop \
+  oci://ghcr.io/fqix/kube-loop/charts/kubeloop \
   --version 3.0.0 \
   --namespace kubeloop-system \
   --create-namespace \
@@ -48,6 +53,9 @@ helm upgrade --install kubeloop \
   --set ingress.enabled=true \
   --set ingress.host=kubeloop.example.com \
   --set ingress.className=nginx \
+  --set controlPlane.image.repository=ghcr.io/fqix/kube-loop/control-plane \
+  --set dataPlane.image.repository=ghcr.io/fqix/kube-loop/gateway \
+  --set operator.image.repository=ghcr.io/fqix/kube-loop/operator \
   --wait
 ```
 
@@ -62,22 +70,9 @@ curl http://kubeloop.example.com/.well-known/kubeloop
 Ingress 默认不启用 TLS。若需 HTTPS，请把 `publicURL` 改为 `https://…`，
 并设置 `ingress.tls.enabled=true` 和 `ingress.tls.secretName`。
 
-Traffic Task 默认启用 `Noise_XX_25519_ChaChaPoly_SHA256`，在客户端与 Gateway
-之间对 Traffic WebSocket 数据帧进行端到端加密。升级期间如需兼容旧版客户端或
-Gateway，可关闭该能力：
-
-```bash
-helm upgrade kubeloop \
-  oci://ghcr.io/fengqi-dev/kube-loop/charts/kubeloop \
-  --reuse-values \
-  --set controlPlane.relay.trafficEncryption=false
-```
-
-客户端默认跟随 Control Plane 签发的 RelayTicket；若客户端显式设置
-`dataplane.Config.TrafficEncryption`，其值必须与 RelayTicket 及 Gateway 配置一致。
-滚动升级时应先在 Control Plane、Gateway 和客户端全部关闭该开关，完成所有组件升级后
-再统一开启；启用策略下，Control Plane 不会向未通过 Relay Control v2 上报 Noise 公钥的
-旧 Gateway 分配新会话。
+反向 Traffic Task 默认使用 Noise 加密。3.0 升级应同时更新客户端、Gateway 和
+Control Plane；关闭 Noise 并不能恢复与 2.x 传输及控制协议的兼容性。
+RelayTicket TTL 必须为 15 秒至 1 分钟。通过不可信网络连接时应使用 HTTPS/WSS。
 
 卸载工作负载：
 
@@ -94,14 +89,14 @@ Chart 会删除工作负载和由 Chart 创建的 SQLite PVC，但会有意保�
 #### macOS 与 Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.sh | bash
 ```
 
 指定版本或 Linux 包格式：
 
 ```bash
 VERSION=v3.0.0 PACKAGE=deb \
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.sh)"
 ```
 
 `PACKAGE` 可选 `deb`、`rpm` 或 `tarball`。
@@ -111,17 +106,17 @@ VERSION=v3.0.0 PACKAGE=deb \
 也可以通过 Homebrew 安装：
 
 ```bash
-brew tap kube-loop/kubeloop https://github.com/fengqi-dev/kube-loop
+brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
 brew install --cask kube-loop/kubeloop/kubeloop-desktop
 ```
 
 #### Windows
 
 ```powershell
-irm https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.ps1 | iex
 ```
 
-[GitHub Releases](https://github.com/fengqi-dev/kube-loop/releases/latest)
+[GitHub Releases](https://github.com/fqix/kube-loop/releases/latest)
 提供 DMG、NSIS、portable zip、deb、rpm 与 tar.gz；每个版本均包含 `SHA256SUMS`。
 
 ### 终端客户端
@@ -131,16 +126,17 @@ K9s 风格的终端客户端提供核心连接与 Kubernetes 资源工作流，�
 macOS 或 Linux：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install-tui.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.sh | bash
 ```
 
 Windows：
 
 ```powershell
-irm https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install-tui.ps1 | iex
+irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.ps1 | iex
 ```
 
-设置 `VERSION=v2.2.0` 可安装指定版本。安装脚本会选择匹配平台的
+运行安装脚本前设置 `VERSION` 环境变量可选择版本，例如 POSIX Shell 使用
+`export VERSION=v3.0.0`，PowerShell 使用 `$env:VERSION = "v3.0.0"`。安装脚本会选择匹配平台的
 `kubeloop-tui-<version>-<os>-<arch>.tar.gz`，使用 Release 中的 `SHA256SUMS`
 完成校验后再安装 `kubeloop`（Windows 为 `kubeloop.exe`）。
 
@@ -152,7 +148,7 @@ Homebrew 中的 `kubeloop-tui` Formula 与 `kubeloop-desktop` Cask 独立安装�
 Formula 安装后的命令仍为 `kubeloop`：
 
 ```bash
-brew tap kube-loop/kubeloop https://github.com/fengqi-dev/kube-loop
+brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
 brew install --formula kube-loop/kubeloop/kubeloop-tui
 ```
 
@@ -163,7 +159,9 @@ brew install --formula kube-loop/kubeloop/kubeloop-tui
 3. 选择 **SOCKS5 proxy** 或 **TUN mode**，再点击**连接**。
 4. 仅 TUN 模式首次使用时需要批准安装本地网络 Helper。
 
-连接后，即可从任意本地应用使用 ClusterIP、Pod IP 或集群域名。
+TUN 模式通过已配置的集群路由和 split DNS 接入应用流量。SOCKS5 模式需要在
+应用中配置 KubeLoop 的本地 SOCKS5 代理，未使用代理的应用不受影响。访问集群域名时，
+应使用代理端域名解析，例如 curl 的 `socks5h`。
 
 ## 开发工作流
 
@@ -191,7 +189,7 @@ EndpointSlice。
 ```
 
 **Control Plane** 负责身份认证、策略、Cluster Session、任务所有权与 Kubernetes
-资源操作。**Gateway** 通过 Trojan/WSS 承载正向流量，并通过 control WSS 承载反向 Task；
+资源操作。**Gateway** 通过 Trojan/WebSocket 承载正向流量，并通过 control WebSocket 承载反向 Task；
 不持有 Kubernetes 凭据。
 本地 **Helper** 只在 TUN 模式管理 sing-box 进程、interface、route、split DNS
 与恢复状态；SOCKS 模式无需特权 Helper。
@@ -207,7 +205,7 @@ Control Plane `pods/exec` Task。
 
 - SSH login name 用于选择容器，不改变容器内实际进程用户。
 - 交互式 Shell 和远程命令要求容器提供 `/bin/sh`。
-- `scp` 与 `sftp` 使用内置 SFTP adapter；文件传输要求容器提供 `tar`。
+- SFTP 和默认使用 SFTP 的新版 `scp` 客户端使用内置适配器。容器需提供 `/bin/sh` 和 `tar`；目录及元数据操作还需要 `ls`、`chmod`、`truncate` 等命令。
 - 缺少 SSH identity 时，KubeLoop 可以创建 `~/.ssh/id_ed25519`，不会覆盖已有 identity。
 - 断开连接会删除仅运行时存在的 SSH endpoint，不会修改 Pod。
 
@@ -230,7 +228,7 @@ MCP 默认关闭，仅监听 `127.0.0.1`，并默认使用自动生成的 Bearer
 | `manage_file_transfer` | 启动、列出或取消本地 ↔ Pod 文件传输 |
 | `manage_pod_files` | 列出、创建、重命名或删除 Pod 文件与目录 |
 
-配置方式参阅[官网 MCP 指南](https://fengqi-dev.github.io/kube-loop/#/mcp)。
+配置方式参阅[官网 MCP 指南](https://fqix.github.io/kube-loop/#/mcp)。
 
 ## 从源码构建
 

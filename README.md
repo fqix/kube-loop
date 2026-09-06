@@ -249,24 +249,30 @@ Requirements:
 
 - Go version declared in [`go.mod`](go.mod)
 - Node.js 22+
-- Platform prerequisites for [Wails](https://wails.io/docs/gettingstarted/installation)
+- NSIS, to build the Windows installer
 
 ```bash
-make build          # build the desktop app
-make test-local     # run non-E2E tests and vet
-make vulncheck      # check Go dependencies for known vulnerabilities
+make desktop-install    # install the workspace dependencies
+make desktop-run        # run the desktop app
+make desktop-package    # package the desktop app for this platform
+make test-local         # run non-E2E tests and vet
+make vulncheck          # check Go dependencies for known vulnerabilities
 ```
 
-Useful frontend commands:
+The desktop app is an Electron shell around a Go sidecar
+([`cmd/kubeloop-desktop-host`](cmd/kubeloop-desktop-host)), which serves the
+application bindings over a loopback JSON-RPC endpoint. See
+[`desktop/README.md`](desktop/README.md) for details.
+
+Useful workspace commands, from the repository root:
 
 ```bash
-cd frontend
 npm ci
-npm run dev          # desktop frontend
+npm run dev          # desktop app (Electron shell)
 npm run dev:admin    # admin console
 npm run dev:auth     # auth page
 npm run dev:site     # public website
-npm run build:site   # writes the production site to ../site
+npm run build:site   # writes the production site to ./site
 ```
 
 The Admin Console, auth page, and public website all use React, Vite,

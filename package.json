@@ -1,0 +1,32 @@
+{
+  "name": "kubeloop-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "desktop",
+    "web/admin",
+    "web/auth",
+    "web/site"
+  ],
+  "scripts": {
+    "dev": "npm run dev:desktop",
+    "dev:desktop": "npm run start --workspace=kubeloop-desktop",
+    "dev:admin": "npm run dev --workspace=kubeloop-admin-frontend",
+    "dev:auth": "npm run dev --workspace=kubeloop-auth-frontend",
+    "dev:site": "npm run dev --workspace=kubeloop-site",
+    "build": "npm run build:desktop && npm run build:admin && npm run build:auth && npm run build:site",
+    "build:desktop": "npm run build --workspace=kubeloop-desktop",
+    "build:admin": "npm run build --workspace=kubeloop-admin-frontend",
+    "build:auth": "npm run build --workspace=kubeloop-auth-frontend",
+    "build:site": "npm run build --workspace=kubeloop-site",
+    "build:host": "npm run build:host --workspace=kubeloop-desktop",
+    "package:desktop": "npm run make --workspace=kubeloop-desktop",
+    "test": "npm run test --workspaces --if-present",
+    "test:desktop": "npm run test --workspace=kubeloop-desktop",
+    "test:admin": "npm run test --workspace=kubeloop-admin-frontend",
+    "test:auth": "npm run test --workspace=kubeloop-auth-frontend"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -77,7 +77,7 @@ func TestLoadServerInventoryUsesCapabilitiesAndRemembersNamespace(t *testing.T) 
 		t.Fatal(err)
 	}
 	if strings.Contains(string(raw), "access-token") || strings.Contains(string(raw), "refresh-token") {
-		t.Fatalf("credentials leaked into Wails result: %s", raw)
+		t.Fatalf("credentials leaked into the binding result: %s", raw)
 	}
 }
 

@@ -2,7 +2,6 @@ package app
 
 import (
 	"io/fs"
-	"path"
 	"strings"
 
 	"github.com/fengqi-dev/kube-loop/internal/helperinstall"
@@ -14,7 +13,7 @@ func registerEmbeddedHelpers(embeddedHelperFiles fs.FS) {
 	if embeddedHelperFiles == nil {
 		return
 	}
-	entries, err := fs.ReadDir(embeddedHelperFiles, "build/embedded")
+	entries, err := fs.ReadDir(embeddedHelperFiles, ".")
 	if err != nil {
 		return
 	}
@@ -26,7 +25,7 @@ func registerEmbeddedHelpers(embeddedHelperFiles fs.FS) {
 		if name == "README.md" || name == embeddedDevelopmentCA || strings.HasPrefix(name, ".") {
 			continue
 		}
-		content, readErr := fs.ReadFile(embeddedHelperFiles, path.Join("build/embedded", name))
+		content, readErr := fs.ReadFile(embeddedHelperFiles, name)
 		if readErr != nil || len(content) == 0 {
 			continue
 		}

@@ -30,8 +30,8 @@ cask "kubeloop-desktop" do
     "~/.kubeloop",
     "~/Library/Application Support/KubeLoop",
     "~/Library/Caches/KubeLoop",
-    "~/Library/Preferences/com.wails.kube-loop.plist",
-    "~/Library/Saved Application State/com.wails.kube-loop.savedState",
+    "~/Library/Preferences/dev.fengqi.kube-loop.plist",
+    "~/Library/Saved Application State/dev.fengqi.kube-loop.savedState",
   ]
 
   caveats <<~EOS

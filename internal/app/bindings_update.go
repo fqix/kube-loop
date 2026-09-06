@@ -2,11 +2,8 @@ package app
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"time"
-
-	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	"github.com/fengqi-dev/kube-loop/internal/update"
 )
@@ -16,9 +13,7 @@ func (a *App) CheckForUpdates() update.Info {
 	checkContext, cancel := context.WithTimeout(a.context(), 20*time.Second)
 	defer cancel()
 	state := a.checkForUpdates(checkContext)
-	if a.ctx != nil {
-		runtime.EventsEmit(a.ctx, "update:state", state)
-	}
+	a.emit(updateStateEvent, state)
 	return state
 }
 
@@ -29,13 +24,11 @@ func (a *App) OpenUpdatePage() error {
 	if target == "" {
 		target = releaseURL
 	}
-	if a.ctx == nil {
-		err := errors.New("application is not ready")
+	a.logInfo("opening application update page")
+	if err := a.hostRuntime().OpenURL(target); err != nil {
 		a.logError("open update page: " + err.Error())
 		return err
 	}
-	a.logInfo("opening application update page")
-	runtime.BrowserOpenURL(a.ctx, target)
 	return nil
 }
 

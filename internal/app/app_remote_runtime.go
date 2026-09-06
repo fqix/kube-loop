@@ -3,10 +3,7 @@ package app
 import (
 	"context"
 	"crypto/tls"
-	"errors"
 	"path/filepath"
-
-	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
 	clientdataplane "github.com/fengqi-dev/kube-loop/internal/client/dataplane"
@@ -29,18 +26,10 @@ func configureRemoteRuntime(
 	application.auth = clientauth.New(clientauth.Config{
 		HTTPClient: dependencies.httpClient,
 		OpenBrowser: func(target string) error {
-			if application.ctx == nil {
-				return errors.New("application is not ready")
-			}
-			runtime.BrowserOpenURL(application.ctx, target)
-			return nil
+			return application.hostRuntime().OpenURL(target)
 		},
 		BrowserCallback: func() {
-			if application.ctx == nil {
-				return
-			}
-			runtime.WindowUnminimise(application.ctx)
-			runtime.Show(application.ctx)
+			application.hostRuntime().ShowWindow()
 		},
 	})
 	remoteClient, remoteErr := clientremote.New(
@@ -55,9 +44,7 @@ func configureRemoteRuntime(
 	remoteFiles, fileErr := clientfiletransfer.NewManager(remoteClient, clientfiletransfer.Config{
 		StatePath: filepath.Join(layout.StateDir(), "transfers.json"),
 		OnEvent: func(task clientfiletransfer.Task) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "server-file-transfer:event", task)
-			}
+			application.emit(serverFileTransferEvent, task)
 		},
 	})
 	if fileErr != nil {
@@ -68,9 +55,7 @@ func configureRemoteRuntime(
 
 	remoteExecs, execErr := clientexec.NewManager(remoteClient, clientexec.ManagerConfig{
 		OnEvent: func(event clientexec.Event) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "server-exec:event", event)
-			}
+			application.emit(serverExecEvent, event)
 		},
 	})
 	if execErr != nil {
@@ -103,9 +88,7 @@ func configureRemoteRuntime(
 			})
 		},
 		OnStatus: func(event clientdataplane.StatusEvent) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "dataplane:status", event)
-			}
+			application.emit(dataPlaneStatusEvent, event)
 		},
 	})
 	if dataPlaneErr != nil {

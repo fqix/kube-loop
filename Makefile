@@ -61,19 +61,44 @@ help: ## Display this help.
 
 .PHONY: admin-frontend-install
 admin-frontend-install: ## Install the browser Management Plane frontend dependencies.
-	npm ci --prefix frontend
+	npm ci
 
 .PHONY: admin-frontend-build
 admin-frontend-build: ## Build the browser Management Plane assets embedded by the Control Plane.
-	npm run build:admin --prefix frontend
+	npm run build:admin
 
 .PHONY: admin-frontend-test
 admin-frontend-test: ## Run browser Management Plane frontend unit tests.
-	npm run test:admin --prefix frontend
+	npm run test:admin
 
 .PHONY: admin-frontend-check
 admin-frontend-check: admin-frontend-test admin-frontend-build ## Test and verify the committed embedded Management Plane assets are current.
 	git diff --exit-code -- internal/controlplane/admin/ui/assets
+
+##@ Desktop application
+
+.PHONY: desktop-install
+desktop-install: ## Install the desktop application dependencies.
+	npm ci
+
+.PHONY: desktop-assets
+desktop-assets: ## Stage the privileged helper and sing-box core the desktop app ships.
+	VITE_APP_VERSION="$(VERSION)" go run ./build/helper-prebuild.go "$(shell go env GOOS)/$(shell go env GOARCH)"
+	VITE_APP_VERSION="$(VERSION)" go run ./build/stage-package-assets.go "$(shell go env GOOS)/$(shell go env GOARCH)"
+
+.PHONY: desktop-host
+desktop-host: ## Build the Go backend the desktop shell runs as a sidecar.
+	go build -ldflags "-X main.version=$(VERSION)" \
+		-o "build/bin/kubeloop-desktop-host$(if $(filter windows,$(shell go env GOOS)),.exe,)" \
+		./cmd/kubeloop-desktop-host
+
+.PHONY: desktop-run
+desktop-run: desktop-host ## Run the desktop application.
+	npm run dev:desktop
+
+.PHONY: desktop-package
+desktop-package: desktop-assets desktop-host ## Package the desktop application for this platform.
+	npm run package:desktop
 
 ##@ TUI
 

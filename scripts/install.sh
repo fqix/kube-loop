@@ -172,8 +172,8 @@ install_tarball() {
   tar -xzf "${tmp}" -C "${DEST}"
   trap - EXIT
   cleanup
-  if [[ -x "${DEST}/KubeLoop" ]]; then
-    echo "Installed binary: ${DEST}/KubeLoop"
+  if [[ -x "${DEST}/kubeloop" ]]; then
+    echo "Installed binary: ${DEST}/kubeloop"
   else
     echo "Extracted into ${DEST}"
   fi

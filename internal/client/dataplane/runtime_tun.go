@@ -42,7 +42,7 @@ func (runtime *Runtime) startTUNLocked(ctx context.Context) (Status, error) {
 	}
 	spec := runtime.session.NetworkSpec
 	// The caller context bounds startup only. Once ready, the TUN belongs to
-	// the Data Plane Runtime and must survive the Wails RPC context ending.
+	// the Data Plane Runtime and must survive the shell RPC context ending.
 	// The sing-box runtime watches its context for the entire process lifetime.
 	tunCtx, tunCancel := context.WithCancel(runtime.ctx)
 	stopStartupCancel := context.AfterFunc(ctx, tunCancel)

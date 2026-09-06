@@ -6,7 +6,7 @@
       "type": "npm",
       "script": "install",
       "options": {
-        "cwd": "${workspaceFolder}/frontend"
+        "cwd": "${workspaceFolder}"
       },
       "presentation": {
         "reveal": "silent",
@@ -16,79 +16,56 @@
       "problemMatcher": []
     },
     {
-      "label": "npm: build",
-      "type": "npm",
-      "script": "build",
-      "options": {
-        "cwd": "${workspaceFolder}/frontend"
-      },
-      "presentation": {
-        "reveal": "silent",
-        "panel": "shared",
-        "showReuseMessage": false
-      },
-      "problemMatcher": ["$tsc"]
-    },
-    {
       "label": "build: helper",
       "type": "shell",
       "options": {
         "cwd": "${workspaceFolder}"
       },
       "command": "./build/bundle-helper.sh",
-      "args": ["dev"],
+      "args": [
+        "dev"
+      ],
       "windows": {
         "options": {
           "shell": {
             "executable": "bash",
-            "args": ["-lc"]
+            "args": [
+              "-lc"
+            ]
           }
         },
         "command": "./build/bundle-helper.sh dev"
       },
-      "problemMatcher": ["$go"]
+      "problemMatcher": [
+        "$go"
+      ]
     },
     {
-      "label": "build",
+      "label": "build: desktop host",
       "type": "shell",
       "options": {
-        "cwd": "${workspaceFolder}",
-        "env": {
-          "CGO_ENABLED": "1"
-        }
-      },
-      "osx": {
-        "options": {
-          "cwd": "${workspaceFolder}",
-          "env": {
-            "CGO_ENABLED": "1",
-            "CGO_LDFLAGS": "-framework UniformTypeIdentifiers"
-          }
-        }
+        "cwd": "${workspaceFolder}"
       },
       "command": "go",
       "args": [
         "build",
-        "-tags",
-        "dev",
         "-gcflags",
         "all=-N -l",
         "-o",
-        "build/bin/KubeLoop"
+        "build/bin/kubeloop-desktop-host",
+        "./cmd/kubeloop-desktop-host"
       ],
       "windows": {
         "args": [
           "build",
-          "-tags",
-          "dev",
           "-gcflags",
           "all=-N -l",
           "-o",
-          "build/bin/KubeLoop.exe"
+          "build/bin/kubeloop-desktop-host.exe",
+          "./cmd/kubeloop-desktop-host"
         ]
       },
       "dependsOn": [
-        "npm: build",
         "build: helper",
         "sing-box: build debug binary"
       ],
@@ -96,7 +73,9 @@
         "kind": "build",
         "isDefault": true
       },
-      "problemMatcher": ["$go"]
+      "problemMatcher": [
+        "$go"
+      ]
     },
     {
       "label": "sing-box: build debug binary",
@@ -119,18 +98,20 @@
       }
     },
     {
-      "label": "KubeLoop: wails dev with sing-box source",
-      "type": "process",
-      "command": "wails",
-      "args": [
-        "dev"
-      ],
+      "label": "KubeLoop: run desktop app with sing-box source",
+      "type": "shell",
+      "command": "npm run dev:desktop",
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {
           "KUBELOOP_SINGBOX_SOURCE": "debug"
         }
       },
+      "dependsOn": [
+        "build: desktop host",
+        "build: helper",
+        "sing-box: build debug binary"
+      ],
       "problemMatcher": [],
       "presentation": {
         "clear": true,

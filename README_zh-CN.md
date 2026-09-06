@@ -236,24 +236,29 @@ MCP 默认关闭，仅监听 `127.0.0.1`，并默认使用自动生成的 Bearer
 
 - [`go.mod`](go.mod) 声明的 Go 版本
 - Node.js 22+
-- 当前平台的 [Wails 前置依赖](https://wails.io/docs/gettingstarted/installation)
+- NSIS，用于构建 Windows 安装包
 
 ```bash
-make build          # 构建桌面应用
-make test-local     # 运行非 E2E 测试与 vet
-make vulncheck      # 检查 Go 依赖的已知漏洞
+make desktop-install    # 安装前端依赖
+make desktop-run        # 运行桌面应用
+make desktop-package    # 为当前平台打包桌面应用
+make test-local         # 运行非 E2E 测试与 vet
+make vulncheck          # 检查 Go 依赖的已知漏洞
 ```
+
+桌面应用是包裹 Go sidecar（[`cmd/kubeloop-desktop-host`](cmd/kubeloop-desktop-host)）
+的 Electron 外壳，sidecar 通过本地回环 JSON-RPC 端点提供应用绑定。详见
+[`desktop/README.md`](desktop/README.md)。
 
 常用前端命令：
 
 ```bash
-cd frontend
 npm ci
-npm run dev          # 桌面端前端
+npm run dev          # 桌面应用（Electron 外壳）
 npm run dev:admin    # 管理控制台
 npm run dev:auth     # 认证页面
 npm run dev:site     # 公开站点
-npm run build:site   # 将生产站点写入 ../site
+npm run build:site   # 将生产站点写入 ./site
 ```
 
 管理控制台、认证页面与公开站点均使用 React、Vite、Tailwind CSS 4 和

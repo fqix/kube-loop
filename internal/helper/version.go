@@ -12,7 +12,7 @@ const (
 
 	// ServiceLabelRelease is the launchd label / privileged helper tool name for release builds.
 	ServiceLabelRelease = "dev.fengqi.kubeloop.helper"
-	// ServiceLabelDev is used by wails/local "dev" builds so they never collide with release.
+	// ServiceLabelDev is used by local "dev" builds so they never collide with release.
 	ServiceLabelDev = "dev.fengqi.kubeloop.helper.dev"
 
 	ServiceNameWinRelease = "KubeLoopHelper"
@@ -23,7 +23,7 @@ const (
 
 // IsDevBuild reports whether this binary is a development (non-release) build.
 // Release command builds inject their version into internal/buildinfo; local
-// and Wails development builds keep this runtime service identity as "dev".
+// and development builds keep this runtime service identity as "dev".
 func IsDevBuild() bool {
 	return Version == "" || Version == developmentVersion
 }

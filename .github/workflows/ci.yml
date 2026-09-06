@@ -38,28 +38,21 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: package-lock.json
 
-      - name: Build and test frontend
+      - name: Build and test the web and desktop workspaces
         run: |
-          npm ci --prefix frontend
-          npm run build --prefix frontend
-          npm run test:frontend --prefix frontend
-          npm run test:admin --prefix frontend
-          npm run test:auth --prefix frontend
+          npm ci
+          npm run build
+          npm run test:desktop
+          npm run test:admin
+          npm run test:auth
 
       - name: Verify embedded browser assets
         run: |
           git diff --exit-code -- \
             internal/controlplane/admin/ui/assets \
             internal/controlplane/authn/httpauth/ui/assets
-
-      - name: Upload frontend dist
-        uses: actions/upload-artifact@v7
-        with:
-          name: frontend-dist
-          path: frontend/dist
-          if-no-files-found: error
 
       - name: Set up Go
         uses: actions/setup-go@v6
@@ -90,7 +83,7 @@ jobs:
             grep -F "ghcr.io/fengqi-dev/kube-loop/${repository}:${app_version}" "${rendered}" >/dev/null
           done
 
-      - name: Install desktop dependencies
+      - name: Install end-to-end test dependencies
         shell: bash
         run: |
           set -euo pipefail
@@ -104,17 +97,15 @@ jobs:
             -o Acquire::http::Timeout=30 \
             -o Acquire::https::Timeout=30 \
             install --yes --no-install-recommends \
-            expect \
-            libgtk-3-dev \
-            libwebkit2gtk-4.1-dev
+            expect
 
       - name: Set up Operator EnvTest
         run: timeout --signal=TERM 10m make setup-envtest
 
       - name: Unit and race tests
         run: |
-          go vet -tags webkit2_41 ./...
-          go test -tags webkit2_41 ./...
+          go vet ./...
+          go test ./...
           go test -race \
             ./internal/gateway/... \
             ./internal/helper \
@@ -139,6 +130,9 @@ jobs:
             fi
             GOOS="${os}" GOARCH="${arch}" go build ./internal/singbox
             GOOS="${os}" GOARCH="${arch}" go build ./internal/helper
+            GOOS="${os}" GOARCH="${arch}" go build \
+              -o "/tmp/kubeloop-desktop-host-${os}-${arch}${suffix}" \
+              ./cmd/kubeloop-desktop-host
             GOOS="${os}" GOARCH="${arch}" CGO_ENABLED=0 go build -trimpath \
               -o "/tmp/kubeloop-helper-${os}-${arch}${suffix}" \
               ./cmd/kubeloop-helper
@@ -171,14 +165,6 @@ jobs:
         with:
           path: build/tools
           key: go-analysis-tools-${{ runner.os }}-${{ hashFiles('Makefile', '.custom-gcl.yml') }}
-
-      - name: Prepare desktop embed placeholder
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p frontend/dist
-          printf '<!doctype html><title>KubeLoop static analysis</title>\n' \
-            > frontend/dist/index.html
 
       - name: Verify generated and patched sources
         shell: bash
@@ -460,12 +446,6 @@ jobs:
           $null = [scriptblock]::Create((Get-Content -Raw scripts/install.ps1))
           $null = [scriptblock]::Create((Get-Content -Raw scripts/install-tui.ps1))
 
-      - name: Download frontend dist
-        uses: actions/download-artifact@v7
-        with:
-          name: frontend-dist
-          path: frontend/dist
-
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
@@ -538,12 +518,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           submodules: recursive
-
-      - name: Download frontend dist
-        uses: actions/download-artifact@v7
-        with:
-          name: frontend-dist
-          path: frontend/dist
 
       - name: Set up Go
         uses: actions/setup-go@v6

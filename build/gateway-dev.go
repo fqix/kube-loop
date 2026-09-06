@@ -120,12 +120,12 @@ func main() {
 		fmt.Printf("==> KubeLoop development server: %s\n", publicURL)
 	}
 	fmt.Printf(
-		"==> Wails development images ready: Control Plane %s, Gateway %s, Operator %s\n",
+		"==> Development images ready: Control Plane %s, Gateway %s, Operator %s\n",
 		controlPlaneImage, gatewayImage, operatorImage,
 	)
 }
 
-// buildDevelopmentSingBox uses the same staging command as a packaged Wails
+// buildDevelopmentSingBox uses the same staging command as a packaged
 // build. Keeping the binary under build/bin lets the development application
 // and Helper exercise the exact patched sing-box that will ship to users.
 // KUBELOOP_SINGBOX_SOURCE remains available for debug builds.
@@ -228,7 +228,7 @@ func buildLinuxBinary(root, output, packagePath string) error {
 	if err := os.MkdirAll(outputDirectory, 0o755); err != nil {
 		return fmt.Errorf("create build directory: %w", err)
 	}
-	// Wails may recreate build/bin with owner-only permissions. Minikube copies
+	// The desktop build may recreate build/bin with owner-only permissions. Minikube copies
 	// the Docker build context through a separate process, which must be able to
 	// traverse this directory to read the prebuilt Linux binaries.
 	if err := os.Chmod(outputDirectory, 0o755); err != nil {

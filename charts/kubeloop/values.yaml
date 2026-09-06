@@ -11,8 +11,8 @@ controlPlane:
   replicas: 1
   logLevel: info
   development:
-    # Local-only runtime preset for Wails and disposable clusters. Authorization
-    # is still database-managed and deny-by-default.
+    # Local-only runtime preset for the desktop app and disposable clusters.
+    # Authorization is still database-managed and deny-by-default.
     enabled: false
   image:
     repository: ghcr.io/fengqi-dev/kube-loop/control-plane

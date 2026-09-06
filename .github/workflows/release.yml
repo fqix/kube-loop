@@ -190,13 +190,15 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: package-lock.json
 
-      - name: Install Linux desktop dependencies
+      - name: Install Linux packaging dependencies
         if: runner.os == 'Linux'
         shell: bash
         run: |
           set -euo pipefail
+          # Electron ships its own runtime, so only the packaging tools for the
+          # deb and rpm makers are needed here.
           sudo env DEBIAN_FRONTEND=noninteractive timeout --signal=TERM 10m \
             bash -euo pipefail -c '
               apt-get \
@@ -209,19 +211,12 @@ jobs:
                 -o Acquire::http::Timeout=30 \
                 -o Acquire::https::Timeout=30 \
                 install --yes --no-install-recommends \
-                libgtk-3-dev \
-                libwebkit2gtk-4.1-dev
+                fakeroot \
+                rpm
             '
 
-      - name: Install frontend dependencies
-        run: npm ci --prefix frontend
-
-      - name: Install Wails
-        run: go install github.com/wailsapp/wails/v2/cmd/wails@v2.13.0
-
-      - name: Install nfpm
-        if: runner.os == 'Linux'
-        run: go install github.com/goreleaser/nfpm/v2/cmd/nfpm@v2.46.3
+      - name: Install workspace dependencies
+        run: npm ci
 
       - name: Install NSIS
         if: runner.os == 'Windows'
@@ -232,90 +227,77 @@ jobs:
 
       - name: Sync product version
         shell: bash
+        working-directory: desktop
         run: |
-          python - <<'PY'
-          import json
-          import os
-          import pathlib
-          import re
-
-          ref_name = os.environ["GITHUB_REF_NAME"]
-          match = re.fullmatch(
-              r"v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+].*)?",
-              ref_name,
-          )
-          if match is None:
-              raise SystemExit(f"release tag is not a supported SemVer: {ref_name}")
-          parts = [int(value) for value in match.groups()]
-          if any(value > 65535 for value in parts):
-              raise SystemExit(f"release version exceeds Windows version limits: {ref_name}")
-          # Wails and the NSIS template append the fourth numeric component.
-          # Keep prerelease/build metadata in the application version injected
-          # below, while package metadata receives a valid X.X.X.0 version.
-          product_version = ".".join(str(value) for value in parts)
-
-          path = pathlib.Path("wails.json")
-          data = json.loads(path.read_text())
-          data.setdefault("info", {})["productVersion"] = product_version
-          path.write_text(json.dumps(data, indent=2) + "\n")
-          print(f"productVersion={product_version}")
-          PY
-
-      - name: Build desktop application
-        if: runner.os != 'Windows'
-        shell: bash
-        env:
-          CGO_LDFLAGS: ${{ runner.os == 'macOS' && '-framework UniformTypeIdentifiers' || '' }}
-          VITE_APP_VERSION: ${{ github.ref_name }}
-        run: |
-          if [[ "${RUNNER_OS}" == "Linux" ]]; then
-            wails build -clean -tags webkit2_41 \
-              -ldflags "-X main.version=${GITHUB_REF_NAME}"
-          else
-            wails build -clean -ldflags "-X main.version=${GITHUB_REF_NAME}"
+          set -euo pipefail
+          ref_name="${GITHUB_REF_NAME}"
+          if [[ ! "${ref_name}" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)([-+].*)?$ ]]; then
+            echo "release tag is not a supported SemVer: ${ref_name}" >&2
+            exit 1
           fi
+          # Package metadata takes the plain X.Y.Z; prerelease and build
+          # metadata stay in the application version injected below.
+          npm version --no-git-tag-version --allow-same-version \
+            "${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.${BASH_REMATCH[3]}"
 
-      - name: Build desktop application
-        if: runner.os == 'Windows'
+      - name: Stage helper and sing-box assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          platform="$(go env GOOS)/$(go env GOARCH)"
+          go run ./build/helper-prebuild.go "${platform}"
+          go run ./build/stage-package-assets.go "${platform}"
+
+      - name: Build desktop backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          suffix=""
+          if [[ "$(go env GOOS)" == "windows" ]]; then
+            suffix=".exe"
+          fi
+          go build -ldflags "-X main.version=${GITHUB_REF_NAME}" \
+            -o "build/bin/kubeloop-desktop-host${suffix}" ./cmd/kubeloop-desktop-host
+
+      - name: Package desktop application
         shell: bash
         env:
           VITE_APP_VERSION: ${{ github.ref_name }}
-        run: |
-          wails build -clean -nsis -ldflags "-X main.version=${GITHUB_REF_NAME}"
+        run: npm run package:desktop
 
-      - name: Package desktop application
-        if: runner.os != 'Windows'
+      - name: Collect desktop artifacts
         shell: bash
-        env:
-          VERSION: ${{ github.ref_name }}
-        run: ./build/package-desktop.sh
-
-      - name: Package desktop application
-        if: runner.os == 'Windows'
-        shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force -Path dist | Out-Null
-          $arch = (go env GOARCH).Trim()
-          $version = ("${{ github.ref_name }}" -replace '^v', '')
-          $stage = New-Item -ItemType Directory -Force -Path "dist/stage-windows"
-          Copy-Item "build/bin/KubeLoop.exe" $stage.FullName
-          Copy-Item "build/bin/sing-box.exe" $stage.FullName
-          Copy-Item "build/bin/LICENSE.sing-box.txt" $stage.FullName
-          foreach ($sidecar in @("libcronet.dll", "wintun.dll")) {
-            $path = Join-Path "build/bin" $sidecar
-            if (-not (Test-Path $path)) {
-              throw "Required sing-box sidecar not found: $path"
-            }
-            Copy-Item $path $stage.FullName
+          set -euo pipefail
+          mkdir -p dist
+          arch="$(go env GOARCH)"
+          version="${GITHUB_REF_NAME#v}"
+          out="desktop/out/make"
+          collect() {
+            local pattern="$1" target="$2" found
+            found="$(find "${out}" -type f -name "${pattern}" -print -quit)"
+            if [[ -z "${found}" ]]; then
+              echo "expected a ${pattern} artifact under ${out}" >&2
+              exit 1
+            fi
+            cp "${found}" "dist/${target}"
           }
-          Copy-Item -Recurse "build/bin/resources" $stage.FullName
-          Compress-Archive -Path "$($stage.FullName)\*" -DestinationPath "dist/kubeloop-desktop-$version-windows-$arch.zip"
-          Remove-Item -Recurse -Force $stage.FullName
-          $installer = Get-ChildItem "build/bin/*-installer.exe" | Select-Object -First 1
-          if (-not $installer) {
-            throw "NSIS installer not found in build/bin"
-          }
-          Copy-Item $installer.FullName "dist/kubeloop-desktop-$version-windows-$arch-installer.exe"
+          case "$(go env GOOS)" in
+            darwin)
+              collect '*.dmg' "kubeloop-desktop-${version}-darwin-${arch}.dmg"
+              collect '*.tar.gz' "kubeloop-desktop-${version}-darwin-${arch}.tar.gz"
+              ;;
+            linux)
+              collect '*.deb' "kubeloop-desktop-${version}-linux-${arch}.deb"
+              collect '*.rpm' "kubeloop-desktop-${version}-linux-${arch}.rpm"
+              collect '*.tar.gz' "kubeloop-desktop-${version}-linux-${arch}.tar.gz"
+              ;;
+            windows)
+              collect '*-installer.exe' "kubeloop-desktop-${version}-windows-${arch}-installer.exe"
+              collect '*.zip' "kubeloop-desktop-${version}-windows-${arch}.zip"
+              ;;
+          esac
+          ls -la dist
 
       - name: Upload desktop artifact
         uses: actions/upload-artifact@v7

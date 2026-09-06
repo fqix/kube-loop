@@ -1,4 +1,4 @@
-//nolint:dupl // The Wails API keeps one explicit binding per traffic type.
+//nolint:dupl // The binding API keeps one explicit binding per traffic type.
 package app
 
 import (

@@ -393,7 +393,7 @@ internal/supervisor/
 | 文件/区域 | 修改内容 |
 | --- | --- |
 | `build/helper-prebuild.go` | 构建并内嵌 Supervisor；为 Worker 生成 manifest |
-| `build/package-desktop.sh` | release Supervisor/Worker 签名顺序和 requirement 验证 |
+| `desktop/forge.config.ts` | release Supervisor/Worker 签名顺序和 requirement 验证 |
 | `internal/app/embedded_helper.go` | 区分 Supervisor、Worker 和 manifest 资源 |
 | `internal/helperinstall/ensure.go` | 优先通过 Supervisor 更新 Worker |
 | `internal/helperinstall/elevate_darwin.go` | 只保留首次安装/修复 Supervisor 的提权入口 |

@@ -30,7 +30,7 @@ traffic, exec, file-transfer, and Pod file APIs. The package does not import kub
 client, or the privileged Helper.
 
 The desktop constructs the backend after its V2 clients and managers, starts
-the embedded MCP listener with the Wails application, and stops the listener
+the embedded MCP listener with the desktop application, and stops the listener
 before shutting down active remote Tasks. An architecture test rejects any
 future direct V1 or Kubernetes import from `internal/mcp` and continues to
 reject Kubernetes packages from the desktop dependency graph.

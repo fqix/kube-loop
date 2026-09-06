@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io/fs"
 	"net/http"
-	"path"
 )
 
 func developmentGatewayHTTPClient(embeddedFiles fs.FS) (*http.Client, *tls.Config, error) {
@@ -16,7 +15,7 @@ func developmentGatewayHTTPClient(embeddedFiles fs.FS) (*http.Client, *tls.Confi
 	}
 	certificate, err := fs.ReadFile(
 		embeddedFiles,
-		path.Join("build", "embedded", embeddedDevelopmentCA),
+		embeddedDevelopmentCA,
 	)
 	if err != nil {
 		return nil, nil, errors.New("read embedded development CA")

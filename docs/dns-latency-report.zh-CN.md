@@ -83,7 +83,13 @@ DNS 端口和 PID 是本次开发会话的临时值，重新连接后可能变�
 1. 使用 `dig` 直接查询 KubeLoop 本地 DNS，分别测试存在和不存在的 `.svc` 名称。
 2. 使用 `dscacheutil` 测试 macOS 系统解析路径。
 3. 使用 `curl` 通过系统解析和 TUN 访问测试 Service。
-4. 检查 `/etc/resolver/svc`、`scutil --dns` 和 Wi-Fi 搜索域。
+4. 检查 `scutil --dns` 中的 supplemental resolver 和搜索域。当前 macOS 实现通过 SystemConfiguration Dynamic Store 注册 split DNS，可用以下命令检查两个临时条目：
+
+   ```bash
+   printf 'show State:/Network/Service/io.kubeloop/DNS\nshow State:/Network/Service/io.kubeloop.search/DNS\nquit\n' | scutil
+   ```
+
+   `io.kubeloop` 负责域名匹配，`io.kubeloop.search` 按 namespace 顺序提供搜索后缀；两者均指向本地 DNS 监听地址和端口。连接时不再创建 `/etc/resolver/` 文件或修改 Wi-Fi 搜索域，断开时删除这两个条目。旧版带 KubeLoop 标记的 resolver 文件和可用的搜索域备份会在迁移时清理。
 
 ### 6.2 缓存周期验证
 

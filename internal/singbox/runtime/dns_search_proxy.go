@@ -26,10 +26,9 @@ const (
 // dnsSearchProxy accepts OS DNS queries on the public split-DNS port, appends
 // Kubernetes search suffixes when needed, and forwards to sing-box dns-in.
 //
-// On macOS, networksetup search domains expand the name and then query the
-// primary resolver (e.g. 114.114.114.114), so short names never hit
-// /etc/resolver/cluster.local. Matching *.svc via /etc/resolver/svc and
-// expanding here makes names like static-web.default.svc work.
+// On macOS, Dynamic Store supplemental resolvers route cluster suffixes and
+// *.svc to this proxy. Expanding here also makes partially qualified names
+// such as static-web.default.svc work without changing network preferences.
 type dnsSearchProxy struct {
 	publicUDP *dns.Server
 	publicTCP *dns.Server

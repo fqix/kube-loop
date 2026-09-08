@@ -172,7 +172,7 @@ func buildInbounds(routes []string, options Options) ([]map[string]any, error) {
 	tunInbound := map[string]any{
 		// dns_mode pins TUN DNS hijack into the DNS router, preserving the
 		// 1.13 behavior this config was built against; split DNS uses platform
-		// resolver rules (/etc/resolver) that target the dns-in inbound directly.
+		// resolver rules that target the local DNS listener.
 		configTypeKey: "tun",
 		configTagKey:  "tun-in",
 		"address":     []string{options.TUNAddress},

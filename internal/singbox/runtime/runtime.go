@@ -111,7 +111,7 @@ func (r *Runtime) startOnce(
 	if err != nil {
 		return nil, err
 	}
-	// Public port is advertised to the OS (/etc/resolver). sing-box dns-in uses
+	// Public port is advertised through the platform split-DNS configuration. sing-box dns-in uses
 	// an internal port; dnsSearchProxy expands short names then forwards.
 	publicDNSPort, err := selectDNSPort()
 	if err != nil {

@@ -4,6 +4,7 @@ package platform
 
 import (
 	"os"
+	"runtime"
 	"testing"
 
 	helperplatform "github.com/fengqi-dev/kube-loop/internal/helperd/platform"
@@ -23,6 +24,10 @@ func TestPlatformDNSApplyAndRestore(t *testing.T) {
 		Domains: []string{platformE2EDomain},
 		Search:  []string{platformE2EDomain},
 		Ndots:   5,
+	}
+	if runtime.GOOS == "darwin" {
+		// macOS must retain the local proxy's non-standard DNS port.
+		dns.Port = 1053
 	}
 	t.Cleanup(func() {
 		if err := helperplatform.RestoreDNS(workDir, dns); err != nil {

@@ -107,13 +107,6 @@ On Debian/Ubuntu, the installer waits up to 300 seconds for unattended upgrades
 or another package manager to release the dpkg lock. Override this with
 `APT_LOCK_TIMEOUT` when needed; do not remove dpkg lock files manually.
 
-Homebrew is also supported:
-
-```bash
-brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
-brew install --cask kube-loop/kubeloop/kubeloop-desktop
-```
-
 #### Windows
 
 ```powershell
@@ -152,14 +145,6 @@ arm64. The TUI uses the same KubeLoop Server profiles and Control Plane APIs as
 the desktop client; it does not read kubeconfig or call Kubernetes directly.
 See the [TUI guide](docs/tui.md) for resources, commands, configuration, and
 testing boundaries.
-
-Homebrew installs the `kubeloop-tui` Formula separately from the
-`kubeloop-desktop` Cask. The Formula still provides the `kubeloop` command:
-
-```bash
-brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
-brew install --formula kube-loop/kubeloop/kubeloop-tui
-```
 
 ## Connect
 

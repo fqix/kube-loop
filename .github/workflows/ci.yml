@@ -3,11 +3,7 @@ name: CI
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "Casks/**"
   pull_request:
-    paths-ignore:
-      - "Casks/**"
   workflow_dispatch:
 
 concurrency:

@@ -78,7 +78,7 @@ package_darwin() {
   fi
 
   # Wails already ad-hoc signed the .app; copying into Resources breaks the seal
-  # and Gatekeeper refuses to open the DMG/cask install ("damaged" / won't launch).
+  # and Gatekeeper refuses to open the DMG install ("damaged" / won't launch).
   codesign --force --deep -s - "${app_stage}"
 
   tar -C "${BIN_DIR}" -czf "${DIST_DIR}/kubeloop-desktop-${version}-darwin-${ARCH}.tar.gz" KubeLoop.app

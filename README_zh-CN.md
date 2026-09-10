@@ -103,13 +103,6 @@ VERSION=v3.0.0 PACKAGE=deb \
 在 Debian/Ubuntu 上，安装脚本默认等待 unattended upgrades 或其他包管理器最多
 300 秒以释放 dpkg 锁；可通过 `APT_LOCK_TIMEOUT` 调整。不要手动删除 dpkg lock 文件。
 
-也可以通过 Homebrew 安装：
-
-```bash
-brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
-brew install --cask kube-loop/kubeloop/kubeloop-desktop
-```
-
 #### Windows
 
 ```powershell
@@ -143,14 +136,6 @@ irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.ps
 Release 同时提供 macOS、Windows、Linux 的 amd64 与 arm64 产物。TUI 与桌面客户端
 共用 KubeLoop Server Profile 和 Control Plane API，不读取 kubeconfig，也不直接调用
 Kubernetes。资源、命令、配置及测试边界参见 [TUI 使用指南](docs/tui.zh-CN.md)。
-
-Homebrew 中的 `kubeloop-tui` Formula 与 `kubeloop-desktop` Cask 独立安装；
-Formula 安装后的命令仍为 `kubeloop`：
-
-```bash
-brew tap kube-loop/kubeloop https://github.com/fqix/kube-loop
-brew install --formula kube-loop/kubeloop/kubeloop-tui
-```
 
 ## 连接集群
 

@@ -134,7 +134,8 @@ func TestSystemStoreSeparatesOAuthClients(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if gotDesktop.RefreshToken != desktopCredential.RefreshToken || gotOther.RefreshToken != otherCredential.RefreshToken {
+	if gotDesktop.RefreshToken != desktopCredential.RefreshToken ||
+		gotOther.RefreshToken != otherCredential.RefreshToken {
 		t.Fatalf("client credentials collided: desktop=%#v other=%#v", gotDesktop, gotOther)
 	}
 	if desktop.service == other.service || desktop.service == serviceName || other.service == serviceName {

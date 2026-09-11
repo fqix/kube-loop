@@ -113,40 +113,40 @@ func TestKeyringServiceSeparatesReleaseAndDevelopment(t *testing.T) {
 func TestSystemStoreSeparatesOAuthClients(t *testing.T) {
 	backend := newMemoryBackend()
 	desktop := newStoreForClient(backend, "v2.1.2", "kubeloop-desktop")
-	tui := newStoreForClient(backend, "v2.1.2", "kubeloop-tui")
+	other := newStoreForClient(backend, "v2.1.2", "kubeloop-other")
 	desktopCredential := Credential{
 		AccessToken: "desktop-access", RefreshToken: "desktop-refresh", DeviceID: "desktop-device",
 	}
-	tuiCredential := Credential{
-		AccessToken: "tui-access", RefreshToken: "tui-refresh", DeviceID: "tui-device",
+	otherCredential := Credential{
+		AccessToken: "other-access", RefreshToken: "other-refresh", DeviceID: "other-device",
 	}
 	if err := desktop.Set("profile-1", desktopCredential); err != nil {
 		t.Fatal(err)
 	}
-	if err := tui.Set("profile-1", tuiCredential); err != nil {
+	if err := other.Set("profile-1", otherCredential); err != nil {
 		t.Fatal(err)
 	}
 	gotDesktop, err := desktop.Get("profile-1")
 	if err != nil {
 		t.Fatal(err)
 	}
-	gotTUI, err := tui.Get("profile-1")
+	gotOther, err := other.Get("profile-1")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if gotDesktop.RefreshToken != desktopCredential.RefreshToken || gotTUI.RefreshToken != tuiCredential.RefreshToken {
-		t.Fatalf("client credentials collided: desktop=%#v tui=%#v", gotDesktop, gotTUI)
+	if gotDesktop.RefreshToken != desktopCredential.RefreshToken || gotOther.RefreshToken != otherCredential.RefreshToken {
+		t.Fatalf("client credentials collided: desktop=%#v other=%#v", gotDesktop, gotOther)
 	}
-	if desktop.service == tui.service || desktop.service == serviceName || tui.service == serviceName {
-		t.Fatalf("client keyring services are not isolated: desktop=%q tui=%q", desktop.service, tui.service)
+	if desktop.service == other.service || desktop.service == serviceName || other.service == serviceName {
+		t.Fatalf("client keyring services are not isolated: desktop=%q other=%q", desktop.service, other.service)
 	}
 }
 
 func TestClientKeyringServiceSeparatesDevelopmentChannel(t *testing.T) {
-	release := keyringServiceForClient("v2.1.2", "kubeloop-tui")
-	development := keyringServiceForClient("dev", "kubeloop-tui")
-	if release == development || !strings.Contains(release, "kubeloop-tui") ||
-		!strings.Contains(development, "kubeloop-tui") {
+	release := keyringServiceForClient("v2.1.2", "kubeloop-other")
+	development := keyringServiceForClient("dev", "kubeloop-other")
+	if release == development || !strings.Contains(release, "kubeloop-other") ||
+		!strings.Contains(development, "kubeloop-other") {
 		t.Fatalf("client services release=%q development=%q", release, development)
 	}
 }

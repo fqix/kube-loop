@@ -112,31 +112,6 @@ irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.ps1 | 
 [GitHub Releases](https://github.com/fqix/kube-loop/releases/latest)
 提供 DMG、NSIS、portable zip、deb、rpm 与 tar.gz；每个版本均包含 `SHA256SUMS`。
 
-### 终端客户端
-
-K9s 风格的终端客户端提供核心连接与 Kubernetes 资源工作流，无需启动桌面 UI。
-
-macOS 或 Linux：
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.sh | bash
-```
-
-Windows：
-
-```powershell
-irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.ps1 | iex
-```
-
-运行安装脚本前设置 `VERSION` 环境变量可选择版本，例如 POSIX Shell 使用
-`export VERSION=v3.0.0`，PowerShell 使用 `$env:VERSION = "v3.0.0"`。安装脚本会选择匹配平台的
-`kubeloop-tui-<version>-<os>-<arch>.tar.gz`，使用 Release 中的 `SHA256SUMS`
-完成校验后再安装 `kubeloop`（Windows 为 `kubeloop.exe`）。
-
-Release 同时提供 macOS、Windows、Linux 的 amd64 与 arm64 产物。TUI 与桌面客户端
-共用 KubeLoop Server Profile 和 Control Plane API，不读取 kubeconfig，也不直接调用
-Kubernetes。资源、命令、配置及测试边界参见 [TUI 使用指南](docs/tui.zh-CN.md)。
-
 ## 连接集群
 
 1. 打开 KubeLoop，添加 KubeLoop Server 的 HTTP 或 HTTPS 地址并完成能力发现。

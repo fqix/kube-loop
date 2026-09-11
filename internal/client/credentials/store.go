@@ -63,7 +63,7 @@ func (systemBackend) Delete(service, account string) error {
 }
 
 // NewSystemStoreForClient isolates OAuth credentials by client ID while still
-// allowing Desktop and TUI to share Server profiles. Refresh tokens are bound
+// allowing clients to share Server profiles. Refresh tokens are bound
 // to the OAuth client that obtained them and must never overwrite each other.
 func NewSystemStoreForClient(version, clientID string) *SystemStore {
 	return newStoreForClient(systemBackend{}, version, clientID)

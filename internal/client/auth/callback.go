@@ -57,13 +57,13 @@ func (client *Client) startLoopbackCallback(ctx context.Context) (string, func()
 		callbackURL := actualRedirect
 		callbackURL.RawQuery = request.URL.RawQuery
 		if err := client.HandleCallbackURL(callbackURL.String()); err != nil {
-			http.Error(rw, "Login callback was rejected. Return to the terminal and try again.", http.StatusBadRequest)
+			http.Error(rw, "Login callback was rejected. Return to KubeLoop and try again.", http.StatusBadRequest)
 			return
 		}
 		const loginCompleteHTML = "<!doctype html><title>KubeLoop login complete</title>" +
 			"<style>body{font-family:sans-serif;max-width:40rem;margin:15vh auto;padding:2rem}" +
 			"h1{color:#087f5b}</style><h1>Login complete</h1>" +
-			"<p>You can close this window and return to KubeLoop TUI.</p>"
+			"<p>You can close this window and return to KubeLoop.</p>"
 		_, _ = io.WriteString(rw, loginCompleteHTML)
 	})
 	server := &http.Server{
@@ -92,7 +92,7 @@ func (client *Client) startLoopbackCallback(ctx context.Context) (string, func()
 }
 
 // HandleCallbackURL completes the active browser login from the desktop URL
-// protocol handler or the TUI loopback listener. Invalid or stale URLs never
+// protocol handler or a loopback listener. Invalid or stale URLs never
 // consume the pending login.
 func (client *Client) HandleCallbackURL(rawURL string) error {
 	callbackURL, err := url.Parse(rawURL)

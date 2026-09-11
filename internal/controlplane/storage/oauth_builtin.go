@@ -35,19 +35,6 @@ func EnsureBuiltinOAuthClients(
 			Trusted: true, Enabled: true, Builtin: true, CreatedAt: now, UpdatedAt: now,
 		},
 		{
-			ID: auth.TUIClientID, Name: "KubeLoop TUI", Public: true,
-			RedirectURIs: []string{auth.TUIRedirectURI},
-			GrantTypes:   []string{grantAuthorizationCode, grantRefreshToken},
-			Scopes: []string{
-				scopeOpenID,
-				scopeProfile,
-				emailField,
-				scopeOfflineAccess,
-				scopeKubeLoopAPI,
-			},
-			Trusted: true, Enabled: true, Builtin: true, CreatedAt: now, UpdatedAt: now,
-		},
-		{
 			ID: auth.ManagementOAuthClientID, Name: "KubeLoop Management", Public: true,
 			RedirectURIs: []string{managementRedirectURI},
 			GrantTypes:   []string{grantAuthorizationCode, grantRefreshToken},

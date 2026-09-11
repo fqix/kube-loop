@@ -117,35 +117,6 @@ DMG, NSIS, portable zip, deb, rpm, and tar.gz artifacts are available from
 [GitHub Releases](https://github.com/fqix/kube-loop/releases/latest).
 Each release includes `SHA256SUMS`.
 
-### Terminal client
-
-The K9s-style terminal client implements the core connection and Kubernetes
-resource workflows without requiring the desktop UI.
-
-On macOS or Linux:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.sh | bash
-```
-
-On Windows:
-
-```powershell
-irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install-tui.ps1 | iex
-```
-
-Set the `VERSION` environment variable (for example, `export VERSION=v3.0.0`
-in a POSIX shell or `$env:VERSION = "v3.0.0"` in PowerShell) before running the
-installer to select a specific release. The installers select the
-matching `kubeloop-tui-<version>-<os>-<arch>.tar.gz` archive and verify it using
-the release `SHA256SUMS` before installing `kubeloop` (`kubeloop.exe` on Windows).
-
-Release archives are available for macOS, Windows, and Linux on amd64 and
-arm64. The TUI uses the same KubeLoop Server profiles and Control Plane APIs as
-the desktop client; it does not read kubeconfig or call Kubernetes directly.
-See the [TUI guide](docs/tui.md) for resources, commands, configuration, and
-testing boundaries.
-
 ## Connect
 
 1. Open KubeLoop, add the HTTP or HTTPS URL of a KubeLoop Server, and run discovery.

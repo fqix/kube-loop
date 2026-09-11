@@ -52,9 +52,7 @@
 
 自动 CI 由 `Checks` 与 `Database` 提供前端、Go 静态检查、单元/Race、跨平台构建和
 PostgreSQL/MySQL 门禁；`Checks` 通过后并行运行 Helm 生命周期、Operator、Linux Minikube、
-Windows Helper 和 macOS Helper E2E。TUI 的隔离 PTY E2E 已纳入 `Checks`，并在 tag 触发的
-Release workflow 中再次作为发布门禁；需要认证 Profile、真实 SOCKS/TUN 和外部服务的
-live TUI E2E 仍保持显式手工运行，不能用 fixture 结果替代。
+Windows Helper 和 macOS Helper E2E。
 
 ## 运行方式
 

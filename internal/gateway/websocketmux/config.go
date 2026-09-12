@@ -3,8 +3,8 @@ package websocketmux
 import (
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
-	shared "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
+	shared "github.com/fqix/kube-loop/internal/transport/websocketmux"
 )
 
 const (

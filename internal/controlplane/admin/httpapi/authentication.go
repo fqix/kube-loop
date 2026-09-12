@@ -6,8 +6,8 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	adminsession "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/session"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	adminsession "github.com/fqix/kube-loop/internal/controlplane/admin/session"
 )
 
 type requestContextKey int

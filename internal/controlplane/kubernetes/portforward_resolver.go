@@ -10,8 +10,8 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	portforwardservice "github.com/fengqi-dev/kube-loop/internal/controlplane/portforwardapi/service"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	portforwardservice "github.com/fqix/kube-loop/internal/controlplane/portforwardapi/service"
 )
 
 type PortForwardResolver struct {

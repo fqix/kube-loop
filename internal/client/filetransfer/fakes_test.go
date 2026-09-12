@@ -14,9 +14,9 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
 )
 
 func uploadServer(t *testing.T, receive func([]byte)) *httptest.Server {

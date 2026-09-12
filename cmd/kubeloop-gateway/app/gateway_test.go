@@ -12,8 +12,8 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	options "github.com/fengqi-dev/kube-loop/internal/gateway/config"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	options "github.com/fqix/kube-loop/internal/gateway/config"
 )
 
 var testBuildInfo = buildinfo.Info{Version: "1.2.3"}

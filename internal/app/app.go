@@ -7,14 +7,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientdiscovery "github.com/fengqi-dev/kube-loop/internal/client/discovery"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/supervisor"
-	"github.com/fengqi-dev/kube-loop/internal/update"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/supervisor"
+	"github.com/fqix/kube-loop/internal/update"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 // NewApp is the desktop composition root. It deliberately constructs no

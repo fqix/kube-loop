@@ -7,9 +7,9 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/relayregistry"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/relayregistry"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 type Coordinator interface {

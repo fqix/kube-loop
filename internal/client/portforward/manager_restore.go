@@ -6,9 +6,9 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 // Restore reconciles local listeners toward the state projected from

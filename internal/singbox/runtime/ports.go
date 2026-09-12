@@ -10,9 +10,9 @@ import (
 
 	"github.com/miekg/dns"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func probeLocalDNS(ctx context.Context, host string, port int, qname string) error {

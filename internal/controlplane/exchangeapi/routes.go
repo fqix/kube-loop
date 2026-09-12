@@ -1,6 +1,6 @@
 package exchangeapi
 
-import "github.com/fengqi-dev/kube-loop/internal/controlplane"
+import "github.com/fqix/kube-loop/internal/controlplane"
 
 type Routes struct{ *Service }
 

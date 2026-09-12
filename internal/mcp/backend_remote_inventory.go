@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 func (backend *RemoteBackend) Version(ctx context.Context, profileID string) (clientremote.Version, error) {

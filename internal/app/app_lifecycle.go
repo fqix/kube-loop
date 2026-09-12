@@ -9,7 +9,7 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/powerwatch"
+	"github.com/fqix/kube-loop/internal/client/powerwatch"
 )
 
 func StartupHandler(a *App) func(context.Context) { return a.startup }

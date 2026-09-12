@@ -10,7 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/apimachinery/pkg/util/wait"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
 )
 
 // Delete requests deletion and waits for the Operator finalizer to restore or

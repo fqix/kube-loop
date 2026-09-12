@@ -9,10 +9,10 @@ import (
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	adminbootstrap "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/bootstrap"
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	adminbootstrap "github.com/fqix/kube-loop/internal/controlplane/admin/bootstrap"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type readAPI struct {

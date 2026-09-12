@@ -10,11 +10,11 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 func TestManagerReusesSessionAndReplacesChangedSession(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
 )
 
 func TestSharedTunnelHandlerRoutesByWebSocketSubprotocol(t *testing.T) {

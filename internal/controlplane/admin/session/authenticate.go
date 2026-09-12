@@ -7,8 +7,8 @@ import (
 	"encoding/base64"
 	"time"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 // Authenticate validates an opaque Management Session token.

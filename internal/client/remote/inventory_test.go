@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func TestPodsNormalizesMissingCollections(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 // EndpointHostPolicy restricts advertised WebSocket endpoints to exact hosts or

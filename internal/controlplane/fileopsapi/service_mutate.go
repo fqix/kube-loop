@@ -6,12 +6,12 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/taskapi"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/taskapi"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 func (handler *Service) mutate(

@@ -11,7 +11,7 @@ import (
 
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
 )
 
 type SessionSynchronizer struct {

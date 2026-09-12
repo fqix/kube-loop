@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	controlplanestorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	controlplanestorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func initializeLocalUsers(ctx context.Context, store *controlplanestorage.Store) (*adminlocaluser.Service, error) {

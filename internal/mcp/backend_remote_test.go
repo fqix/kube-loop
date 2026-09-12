@@ -7,14 +7,14 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	clientdataplane "github.com/fengqi-dev/kube-loop/internal/client/dataplane"
-	clientexchange "github.com/fengqi-dev/kube-loop/internal/client/exchange"
-	clientexec "github.com/fengqi-dev/kube-loop/internal/client/exec"
-	clientmirror "github.com/fengqi-dev/kube-loop/internal/client/mirror"
-	clientportforward "github.com/fengqi-dev/kube-loop/internal/client/portforward"
-	clientpreview "github.com/fengqi-dev/kube-loop/internal/client/preview"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientdataplane "github.com/fqix/kube-loop/internal/client/dataplane"
+	clientexchange "github.com/fqix/kube-loop/internal/client/exchange"
+	clientexec "github.com/fqix/kube-loop/internal/client/exec"
+	clientmirror "github.com/fqix/kube-loop/internal/client/mirror"
+	clientportforward "github.com/fqix/kube-loop/internal/client/portforward"
+	clientpreview "github.com/fqix/kube-loop/internal/client/preview"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 type fakeProfiles struct{ state clientprofile.State }

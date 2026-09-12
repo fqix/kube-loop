@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/auth"
 )
 
 const (

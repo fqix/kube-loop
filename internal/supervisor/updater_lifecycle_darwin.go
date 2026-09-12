@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
 )
 
 func (u *Updater) Recover(ctx context.Context) error {

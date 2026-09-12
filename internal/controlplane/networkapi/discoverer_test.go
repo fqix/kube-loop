@@ -11,8 +11,8 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/fake"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 type fakeProvider struct {

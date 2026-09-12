@@ -13,9 +13,9 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trojanws"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/trojanws"
+	"github.com/fqix/kube-loop/internal/singbox"
 )
 
 const DefaultPath = trojanws.DefaultPath

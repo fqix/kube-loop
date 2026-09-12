@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/auth"
 )
 
 func TestEnsureBuiltinOAuthClientsUsesDesktopProtocolCallback(t *testing.T) {

@@ -11,8 +11,8 @@ import (
 
 	"github.com/google/uuid"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 // ExchangeIdentity creates a browser-only Management Session from an already

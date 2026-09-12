@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func authorizationRequestForHTTP(

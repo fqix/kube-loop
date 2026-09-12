@@ -14,7 +14,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
 )
 
 const defaultInventoryResync = 30 * time.Second

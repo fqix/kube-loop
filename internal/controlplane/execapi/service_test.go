@@ -19,14 +19,14 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/execapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/execapi"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 type sessionValidator struct {

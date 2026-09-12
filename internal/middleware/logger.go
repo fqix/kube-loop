@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/v5"
 	echomiddleware "github.com/labstack/echo/v5/middleware"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 // RequestLogger returns Echo request logging middleware backed by slog.

@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type AuditRecord = controlplanemiddleware.AuditRecord

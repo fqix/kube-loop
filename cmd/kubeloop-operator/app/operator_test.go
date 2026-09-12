@@ -11,8 +11,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	operatorruntime "github.com/fengqi-dev/kube-loop/internal/operator/runtime"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	operatorruntime "github.com/fqix/kube-loop/internal/operator/runtime"
 )
 
 var testBuildInfo = buildinfo.Info{Version: "1.2.3"}

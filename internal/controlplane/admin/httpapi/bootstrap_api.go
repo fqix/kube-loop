@@ -7,9 +7,9 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	adminbootstrap "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/bootstrap"
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminbootstrap "github.com/fqix/kube-loop/internal/controlplane/admin/bootstrap"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type completeBootstrapRequest struct {

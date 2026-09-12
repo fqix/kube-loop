@@ -1,9 +1,9 @@
 package mirrorapi
 
 import (
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficapi"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficapi"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 // task tells the shared traffic task handlers in internal/controlplane/trafficapi

@@ -10,8 +10,8 @@ import (
 	"github.com/google/uuid"
 	"k8s.io/apimachinery/pkg/util/validation"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
 )
 
 func (handler *Service) normalizeSpec(spec *Spec) *controlplaneapi.Error {

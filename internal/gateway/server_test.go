@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
 )
 
 type gatewayTestTrafficCall struct {

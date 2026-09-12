@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/helperinstall"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	singboxruntime "github.com/fengqi-dev/kube-loop/internal/singbox/runtime"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helperinstall"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	singboxruntime "github.com/fqix/kube-loop/internal/singbox/runtime"
 )
 
 // cleanupPrivilegedTUNSessions removes sing-box sessions left behind when a

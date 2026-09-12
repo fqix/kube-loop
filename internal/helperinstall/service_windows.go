@@ -13,7 +13,7 @@ import (
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/mgr"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 func enableService(binaryPath string) error {

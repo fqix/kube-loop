@@ -13,7 +13,7 @@ import (
 	kruntime "k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/rest"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
 )
 
 func TestServiceAccountModeDoesNotImpersonateOrMutateBase(t *testing.T) {

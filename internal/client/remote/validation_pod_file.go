@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 func validatePodFileSpec(action string, spec *PodFileSpec) error {

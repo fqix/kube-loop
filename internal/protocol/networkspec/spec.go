@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/dns"
+	"github.com/fqix/kube-loop/internal/protocol/dns"
 )
 
 const (

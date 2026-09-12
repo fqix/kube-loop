@@ -8,7 +8,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (d Dialer) openControl(ctx context.Context) (net.Conn, *bufio.Reader, error) {

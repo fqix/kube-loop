@@ -15,8 +15,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
+	"github.com/fqix/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
 )
 
 func TestOIDCProtocolLoginUsesStatePKCEAndExchange(t *testing.T) {

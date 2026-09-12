@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/servicebinding"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/controlplane/servicebinding"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 func NewPendingInterceptBinding(

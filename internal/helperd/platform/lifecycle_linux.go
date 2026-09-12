@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 const (

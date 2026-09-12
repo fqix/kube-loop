@@ -11,9 +11,9 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/health"
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/controlplane/health"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
+	"github.com/fqix/kube-loop/internal/middleware"
 )
 
 const (

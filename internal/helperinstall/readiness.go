@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
 )
 
 func waitForInstalledHelper(ctx context.Context, token string) error {

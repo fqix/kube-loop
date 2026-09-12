@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/reverserelay"
-	"github.com/fengqi-dev/kube-loop/internal/client/taskrelay"
+	"github.com/fqix/kube-loop/internal/client/reverserelay"
+	"github.com/fqix/kube-loop/internal/client/taskrelay"
 )
 
 type DialContextFunc = reverserelay.DialContextFunc

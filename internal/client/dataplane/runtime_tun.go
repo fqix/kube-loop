@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/singbox"
 )
 
 func (runtime *Runtime) Status() Status {

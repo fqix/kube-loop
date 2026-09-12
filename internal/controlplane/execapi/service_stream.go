@@ -11,14 +11,14 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/streamlease"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/taskapi"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/streamlease"
+	"github.com/fqix/kube-loop/internal/controlplane/taskapi"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
 )
 
 func (handler *Service) stream(

@@ -5,7 +5,7 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
 )
 
 func (api *readAPI) localUserRoutes(group *echo.Group) {

@@ -10,10 +10,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	options "github.com/fengqi-dev/kube-loop/internal/controlplane/config"
-	controlplaneruntime "github.com/fengqi-dev/kube-loop/internal/controlplane/runtime"
-	"github.com/fengqi-dev/kube-loop/internal/logging"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	options "github.com/fqix/kube-loop/internal/controlplane/config"
+	controlplaneruntime "github.com/fqix/kube-loop/internal/controlplane/runtime"
+	"github.com/fqix/kube-loop/internal/logging"
 )
 
 // NewControlPlaneCommand returns the kubeloop-control-plane cobra command.

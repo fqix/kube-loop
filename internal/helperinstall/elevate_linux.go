@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 const linuxInstallScript = `set -eu

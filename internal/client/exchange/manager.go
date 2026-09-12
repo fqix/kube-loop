@@ -7,11 +7,11 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/reverserelay"
-	"github.com/fengqi-dev/kube-loop/internal/client/taskrelay"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/reverserelay"
+	"github.com/fqix/kube-loop/internal/client/taskrelay"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 type Client interface {

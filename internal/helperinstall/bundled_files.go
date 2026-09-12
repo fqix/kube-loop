@@ -10,9 +10,9 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 var (

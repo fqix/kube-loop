@@ -3,8 +3,8 @@ package fileapi
 import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/taskapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/taskapi"
 )
 
 func targetError(err error) *controlplaneapi.Error {

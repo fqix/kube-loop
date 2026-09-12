@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 const TokenLifetime = 24 * time.Hour

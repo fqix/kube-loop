@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/socksbridge"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/socksbridge"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/singbox"
 )
 
 type testTickets struct {

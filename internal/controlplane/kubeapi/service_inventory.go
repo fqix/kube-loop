@@ -8,7 +8,7 @@ import (
 	"k8s.io/apimachinery/pkg/version"
 	kubernetesclient "k8s.io/client-go/kubernetes"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func (handler *Service) version(

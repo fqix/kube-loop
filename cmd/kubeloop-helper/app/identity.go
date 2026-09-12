@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
 )
 
 type helperIdentity struct {

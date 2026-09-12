@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/logging"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/logging"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 const (

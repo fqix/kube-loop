@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func WriteStatus(w io.Writer, err error) error {

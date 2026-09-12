@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 func TestDerivePasswordIsStableAndDomainSeparated(t *testing.T) {

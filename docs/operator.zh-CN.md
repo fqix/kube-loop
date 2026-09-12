@@ -6,7 +6,7 @@ ServiceAccount 部署，以便隔离 Kubernetes 资源协调权限。
 
 根目录的 `PROJECT` 保存 Kubebuilder 生成器元数据；CRD API 位于 `api/v1alpha1`，Controller 位于
 `internal/controller/`，生成清单位于根 `config/`，端到端测试位于 `e2e/operator/`。Go import path
-仍属于根 module `github.com/fengqi-dev/kube-loop`。
+仍属于根 module `github.com/fqix/kube-loop`。
 
 进程入口统一放在根项目 `cmd/`：`cmd/kubeloop-control-plane` 运行 HTTP API、认证和任务控制面，
 `cmd/kubeloop-operator` 只运行 Kubernetes Controller。Operator API 和 Controller 按 Kubebuilder
@@ -50,7 +50,7 @@ ServiceAccount 只拥有 `TrafficBinding` 的 create/get/list/watch/delete 以�
 make operator-manifests operator-generate
 make operator-test
 make operator-build
-make operator-docker-build OPERATOR_IMG=ghcr.io/fengqi-dev/kube-loop/operator:tag
+make operator-docker-build OPERATOR_IMG=ghcr.io/fqix/kube-loop/operator:tag
 ```
 
 Docker 构建上下文固定为仓库根目录，因此镜像使用根 `go.mod`。CRD 和 RBAC 文件由

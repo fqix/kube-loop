@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authn/oauthserver"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/authn/oauthserver"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func authenticateWithFosite(endpoints *oauthserver.Endpoints) controlplaneapi.AuthenticatorFunc {

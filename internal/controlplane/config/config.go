@@ -1,6 +1,6 @@
 package config
 
-import controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
+import controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
 
 type Document struct {
 	API            APIConfig            `json:"api"`

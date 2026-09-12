@@ -6,8 +6,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/execapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/execapi"
 )
 
 const maximumArchiveEntries = 100_000

@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
+	clientauth "github.com/fqix/kube-loop/internal/client/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 )
 
 type memoryCredentialStore struct {

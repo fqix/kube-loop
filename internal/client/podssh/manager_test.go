@@ -17,11 +17,11 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	localpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh/sshserver"
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/socksbridge"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
+	localpodssh "github.com/fqix/kube-loop/internal/client/podssh/sshserver"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/socksbridge"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
 )
 
 type fakeHostTCPRegistrar struct {

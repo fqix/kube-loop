@@ -7,7 +7,7 @@ import (
 	"testing/synctest"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/periodic"
+	"github.com/fqix/kube-loop/internal/controlplane/periodic"
 )
 
 func TestRunSkipsCanceledContext(t *testing.T) {

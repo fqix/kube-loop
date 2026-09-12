@@ -8,14 +8,14 @@ import (
 	"github.com/labstack/echo/v5"
 	"k8s.io/apimachinery/pkg/util/validation"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
-	portforwardservice "github.com/fengqi-dev/kube-loop/internal/controlplane/portforwardapi/service"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/routequery"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionroute"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/taskapi"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
+	portforwardservice "github.com/fqix/kube-loop/internal/controlplane/portforwardapi/service"
+	"github.com/fqix/kube-loop/internal/controlplane/routequery"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionroute"
+	"github.com/fqix/kube-loop/internal/controlplane/taskapi"
 )
 
 type SessionValidator interface {

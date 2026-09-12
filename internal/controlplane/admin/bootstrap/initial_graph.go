@@ -6,8 +6,8 @@ import (
 	"errors"
 	"time"
 
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type initialGraphRequest struct {

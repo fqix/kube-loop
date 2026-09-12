@@ -3,10 +3,10 @@ package exchangeapi
 import (
 	"errors"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficbindingclient"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficsession"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficbindingclient"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficsession"
 )
 
 func (handler *Service) bindingSessions() (*trafficbindingclient.Manager, error) {

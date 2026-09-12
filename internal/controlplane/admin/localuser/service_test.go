@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func TestPasswordCredentialsAuthenticate(t *testing.T) {

@@ -1,6 +1,6 @@
 package reverserelay
 
-import "github.com/fengqi-dev/kube-loop/internal/client/remote"
+import "github.com/fqix/kube-loop/internal/client/remote"
 
 // RemoteTargets copies local destinations into the remote API representation.
 func RemoteTargets(targets []Target) []remote.LocalTarget {

@@ -11,7 +11,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/fengqi-dev/kube-loop/e2e/operator/utils"
+	"github.com/fqix/kube-loop/e2e/operator/utils"
 )
 
 var (

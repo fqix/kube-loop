@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type fakeWorker struct {

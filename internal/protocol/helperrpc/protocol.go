@@ -1,6 +1,6 @@
 package helperrpc
 
-import "github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+import "github.com/fqix/kube-loop/internal/protocol/sessionspec"
 
 const (
 	Version = 8

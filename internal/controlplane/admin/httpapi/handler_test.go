@@ -12,9 +12,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v5"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	adminsession "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/session"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	adminsession "github.com/fqix/kube-loop/internal/controlplane/admin/session"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func TestAuthenticatedIdentityCanReadManagementAPI(t *testing.T) {

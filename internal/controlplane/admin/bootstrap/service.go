@@ -11,8 +11,8 @@ import (
 
 	"github.com/google/uuid"
 
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 var (

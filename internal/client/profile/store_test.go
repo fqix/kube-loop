@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func TestDefaultPathUsesConfigDirectory(t *testing.T) {

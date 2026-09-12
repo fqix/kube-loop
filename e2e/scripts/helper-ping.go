@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	helperprotocol "github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/helper"
+	helperprotocol "github.com/fqix/kube-loop/internal/protocol/helperrpc"
 )
 
 func main() {

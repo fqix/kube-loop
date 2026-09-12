@@ -11,12 +11,12 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/api"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/gateway/api"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 type fakeController struct {

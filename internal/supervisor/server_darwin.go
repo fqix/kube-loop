@@ -15,7 +15,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
 )
 
 type Server struct {

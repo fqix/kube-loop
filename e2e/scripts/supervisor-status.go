@@ -9,8 +9,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/supervisor"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/supervisor"
 )
 
 func main() {

@@ -10,7 +10,7 @@ import (
 	"github.com/ory/fosite/handler/openid"
 	"github.com/ory/fosite/handler/pkce"
 
-	controlstorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlstorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 const (

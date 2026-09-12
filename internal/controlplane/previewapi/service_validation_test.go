@@ -3,7 +3,7 @@ package previewapi
 import (
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 func TestNormalizeRequestPreviewNames(t *testing.T) {

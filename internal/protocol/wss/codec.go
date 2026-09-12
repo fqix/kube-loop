@@ -3,7 +3,7 @@ package wss
 import (
 	"encoding/json"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func Encode(message any) ([]byte, error) {

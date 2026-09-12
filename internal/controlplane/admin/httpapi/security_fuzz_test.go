@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	adminsession "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/session"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminsession "github.com/fqix/kube-loop/internal/controlplane/admin/session"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func FuzzManagementEntryBoundedRedactedAndFailClosed(f *testing.F) {

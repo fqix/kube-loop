@@ -8,9 +8,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 const passwordDomain = "kubeloop/trojan-wss/v3/password\x00"

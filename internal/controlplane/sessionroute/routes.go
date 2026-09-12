@@ -7,10 +7,10 @@ import (
 	"github.com/labstack/echo/v5"
 	"k8s.io/apimachinery/pkg/util/validation"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
 )
 
 type Sessions interface {

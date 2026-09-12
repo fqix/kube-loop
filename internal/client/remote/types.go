@@ -3,7 +3,7 @@ package remote
 import (
 	"fmt"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/capability"
+	"github.com/fqix/kube-loop/internal/protocol/capability"
 )
 
 type APIError struct {

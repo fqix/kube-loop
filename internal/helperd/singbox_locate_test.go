@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 func TestResolveSingBoxPathUsesConfiguredTrustedCore(t *testing.T) {

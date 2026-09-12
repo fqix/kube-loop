@@ -13,9 +13,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func TestContractHTTPResponseAllowsAdditiveFieldsButRejectsMissingRequiredFields(t *testing.T) {

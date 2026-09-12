@@ -10,9 +10,9 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/auth"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type oauthClientInput struct {

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	clientdiscovery "github.com/fengqi-dev/kube-loop/internal/client/discovery"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/singbox/distribution"
+	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/singbox/distribution"
 )
 
 func TestSaveSelectAndDeleteServerProfile(t *testing.T) {

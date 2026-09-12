@@ -10,8 +10,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 func TestTrafficSessionLifecycleUsesOnlyTrafficBinding(t *testing.T) {

@@ -9,7 +9,7 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 func handleInternalRequest[Request any, Response interface{ Validate(time.Time) error }](

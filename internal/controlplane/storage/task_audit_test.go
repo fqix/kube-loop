@@ -9,8 +9,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 func TestTaskTransitionRollsBackWhenAuditAppendFails(t *testing.T) {

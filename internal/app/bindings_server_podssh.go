@@ -4,8 +4,8 @@ import (
 	"errors"
 	"strings"
 
-	clientpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh"
-	"github.com/fengqi-dev/kube-loop/internal/terminal"
+	clientpodssh "github.com/fqix/kube-loop/internal/client/podssh"
+	"github.com/fqix/kube-loop/internal/terminal"
 )
 
 type ServerPodSSHRequest struct {

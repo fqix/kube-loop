@@ -3,17 +3,17 @@ package app
 import (
 	"path/filepath"
 
-	clientdataplane "github.com/fengqi-dev/kube-loop/internal/client/dataplane"
-	clientexchange "github.com/fengqi-dev/kube-loop/internal/client/exchange"
-	clientmirror "github.com/fengqi-dev/kube-loop/internal/client/mirror"
-	clientpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh"
-	localpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh/sshserver"
-	clientportforward "github.com/fengqi-dev/kube-loop/internal/client/portforward"
-	clientpreview "github.com/fengqi-dev/kube-loop/internal/client/preview"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	clientremotesession "github.com/fengqi-dev/kube-loop/internal/client/remotesession"
-	"github.com/fengqi-dev/kube-loop/internal/mcp"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	clientdataplane "github.com/fqix/kube-loop/internal/client/dataplane"
+	clientexchange "github.com/fqix/kube-loop/internal/client/exchange"
+	clientmirror "github.com/fqix/kube-loop/internal/client/mirror"
+	clientpodssh "github.com/fqix/kube-loop/internal/client/podssh"
+	localpodssh "github.com/fqix/kube-loop/internal/client/podssh/sshserver"
+	clientportforward "github.com/fqix/kube-loop/internal/client/portforward"
+	clientpreview "github.com/fqix/kube-loop/internal/client/preview"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	clientremotesession "github.com/fqix/kube-loop/internal/client/remotesession"
+	"github.com/fqix/kube-loop/internal/mcp"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func configureRemoteTaskManagers(

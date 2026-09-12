@@ -17,12 +17,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trojanws"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/trojanws"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 const defaultReadyTimeout = 10 * time.Second

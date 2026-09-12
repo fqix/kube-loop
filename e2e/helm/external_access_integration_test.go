@@ -18,10 +18,10 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
 )
 
 // The server also applies WriteTimeout to the TLS handshake. Keep enough room

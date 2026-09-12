@@ -7,13 +7,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/fileapi"
-	controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/maintenance"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	controlplanestorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/fileapi"
+	controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
+	"github.com/fqix/kube-loop/internal/controlplane/maintenance"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	controlplanestorage "github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 type Config struct {

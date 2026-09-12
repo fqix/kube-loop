@@ -13,7 +13,7 @@ import (
 	"strings"
 	"uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (manager *Manager) load() error {

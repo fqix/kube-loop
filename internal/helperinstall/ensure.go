@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
 )
 
 var (

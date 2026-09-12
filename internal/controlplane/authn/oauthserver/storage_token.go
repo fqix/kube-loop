@@ -7,7 +7,7 @@ import (
 
 	"github.com/ory/fosite"
 
-	controlstorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlstorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func (storage *Storage) CreateAccessTokenSession(

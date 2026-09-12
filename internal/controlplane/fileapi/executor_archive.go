@@ -11,8 +11,8 @@ import (
 
 	"github.com/kballard/go-shellquote"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (executor *KubernetesTransferExecutor) uploadValidatedArchive(

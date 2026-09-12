@@ -1,6 +1,6 @@
 package exchangestream
 
-import "github.com/fengqi-dev/kube-loop/internal/protocol/streamframe"
+import "github.com/fqix/kube-loop/internal/protocol/streamframe"
 
 // Frame types and limits. They mirror streamframe today; this contract owns
 // them so it can diverge from the shared layout on its own schedule.

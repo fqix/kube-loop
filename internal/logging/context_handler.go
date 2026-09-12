@@ -4,7 +4,7 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 // WithContext decorates handler with request-scoped correlation attributes.

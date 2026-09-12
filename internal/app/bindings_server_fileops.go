@@ -6,8 +6,8 @@ import (
 
 	"github.com/google/uuid"
 
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 type ServerPodFileTarget struct {

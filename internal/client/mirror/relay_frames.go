@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/mirrorstream"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/mirrorstream"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func newLocalRelay(

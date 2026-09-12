@@ -2,7 +2,7 @@
 # Download the latest KubeLoop desktop release.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.sh | bash
 #   VERSION=v1.1.0 ./scripts/install.sh
 #   PACKAGE=deb|rpm|tarball ./scripts/install.sh   # Linux only
 #   APT_LOCK_TIMEOUT=600 ./scripts/install.sh      # Debian/Ubuntu only
@@ -11,7 +11,7 @@
 # Linux: prefers .deb/.rpm when available, otherwise extracts the .tar.gz
 set -euo pipefail
 
-REPO="${REPO:-fengqi-dev/kube-loop}"
+REPO="${REPO:-fqix/kube-loop}"
 DEST="${DEST:-$PWD}"
 TAG="${VERSION:-${TAG:-}}"
 PACKAGE="${PACKAGE:-auto}"

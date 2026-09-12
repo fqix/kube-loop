@@ -1,8 +1,8 @@
 package fileapi
 
 import (
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionroute"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionroute"
 )
 
 type Routes struct{ *Service }

@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	options "github.com/fengqi-dev/kube-loop/internal/controlplane/config"
+	options "github.com/fqix/kube-loop/internal/controlplane/config"
 )
 
 type runtimeTestServer struct {

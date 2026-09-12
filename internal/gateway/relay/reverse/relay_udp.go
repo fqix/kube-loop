@@ -7,10 +7,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/listener"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/gateway/relay/listener"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type udpRelayAssociation struct {

@@ -8,9 +8,9 @@ import (
 	"slices"
 	"strings"
 
-	localpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh/sshserver"
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
+	localpodssh "github.com/fqix/kube-loop/internal/client/podssh/sshserver"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
 )
 
 func (manager *Manager) Start(

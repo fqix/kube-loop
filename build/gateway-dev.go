@@ -18,7 +18,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/componentstore"
 )
 
 const (

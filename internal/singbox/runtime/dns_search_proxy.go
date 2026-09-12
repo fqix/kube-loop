@@ -12,9 +12,9 @@ import (
 
 	"github.com/miekg/dns"
 
-	dnsprotocol "github.com/fengqi-dev/kube-loop/internal/protocol/dns"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
+	dnsprotocol "github.com/fqix/kube-loop/internal/protocol/dns"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/singbox"
 )
 
 const (

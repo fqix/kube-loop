@@ -13,7 +13,7 @@ import (
 
 	"github.com/google/uuid"
 
-	servermux "github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
+	servermux "github.com/fqix/kube-loop/internal/gateway/websocketmux"
 )
 
 func TestForwarderReplacesClosedPhysicalSession(t *testing.T) {

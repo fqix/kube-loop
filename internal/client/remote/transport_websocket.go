@@ -11,10 +11,10 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/utils"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func (client *Client) openTaskWebSocket(

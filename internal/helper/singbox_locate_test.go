@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/componentstore"
 )
 
 func TestLocateBundledSingBoxPrefersFreshDevelopmentBuild(t *testing.T) {

@@ -18,13 +18,13 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/util/validation"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/servicebinding"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficbindingclient"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/servicebinding"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficbindingclient"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 // Errors builds the API errors for one traffic task type. Name is the

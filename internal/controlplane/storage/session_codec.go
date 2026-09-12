@@ -8,7 +8,7 @@ import (
 
 	"github.com/uptrace/bun"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 type sessionRow struct {

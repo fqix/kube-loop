@@ -9,7 +9,7 @@ import (
 
 	version "github.com/hashicorp/go-version"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func (client *Client) validate(baseURL string, document Document) error {

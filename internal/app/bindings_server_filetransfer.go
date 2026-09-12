@@ -7,7 +7,7 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
-	clientfiletransfer "github.com/fengqi-dev/kube-loop/internal/client/filetransfer"
+	clientfiletransfer "github.com/fqix/kube-loop/internal/client/filetransfer"
 )
 
 func (a *App) StartServerFileTransfer(request clientfiletransfer.Request) (clientfiletransfer.Task, error) {

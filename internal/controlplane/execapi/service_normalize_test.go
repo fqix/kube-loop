@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func TestNormalizeSpecValidatesCommandContract(t *testing.T) {

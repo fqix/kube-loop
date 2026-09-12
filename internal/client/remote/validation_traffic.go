@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 type servicePortValue struct {

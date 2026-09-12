@@ -16,7 +16,7 @@ import (
 	"runtime"
 	"strings"
 
-	singboxdist "github.com/fengqi-dev/kube-loop/internal/singbox/distribution"
+	singboxdist "github.com/fqix/kube-loop/internal/singbox/distribution"
 )
 
 func main() {

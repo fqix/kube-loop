@@ -12,10 +12,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientdiscovery "github.com/fengqi-dev/kube-loop/internal/client/discovery"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 func TestCleanDirectoryWithOnlyServerURLBrowsesRemoteInventory(t *testing.T) {

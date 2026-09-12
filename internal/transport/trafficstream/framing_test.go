@@ -12,8 +12,8 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/mirrorstream"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/protocol/mirrorstream"
 )
 
 func TestFrameConnRoundTripsExchangeAndMirrorFrames(t *testing.T) {

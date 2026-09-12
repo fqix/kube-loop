@@ -15,8 +15,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type Options struct {

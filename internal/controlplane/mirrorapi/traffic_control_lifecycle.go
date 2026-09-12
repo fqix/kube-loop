@@ -3,7 +3,7 @@ package mirrorapi
 import (
 	"context"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/servicebinding"
+	"github.com/fqix/kube-loop/internal/controlplane/servicebinding"
 )
 
 // release restores the mirrored Service the relay was shadowing.

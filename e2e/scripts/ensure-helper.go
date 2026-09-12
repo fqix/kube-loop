@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"time"
 
-	helperinstall "github.com/fengqi-dev/kube-loop/internal/helper/install"
+	helperinstall "github.com/fqix/kube-loop/internal/helper/install"
 )
 
 func main() {

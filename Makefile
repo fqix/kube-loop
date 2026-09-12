@@ -5,7 +5,7 @@
 SHELL = /usr/bin/env bash -o pipefail
 .SHELLFLAGS = -ec
 
-OPERATOR_IMG ?= ghcr.io/fengqi-dev/kube-loop/operator:latest
+OPERATOR_IMG ?= ghcr.io/fqix/kube-loop/operator:latest
 CONTAINER_TOOL ?= docker
 YEAR ?= $(shell date +%Y)
 VERSION ?= dev

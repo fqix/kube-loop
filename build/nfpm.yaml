@@ -12,7 +12,7 @@ description: |
   Local development network for Kubernetes.
   Connect your laptop to a cluster with TUN routing, DNS, and port tools.
 vendor: KubeLoop
-homepage: https://github.com/fengqi-dev/kube-loop
+homepage: https://github.com/fqix/kube-loop
 license: MIT
 
 scripts:

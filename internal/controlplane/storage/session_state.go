@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 func (repository *sessionRepository) Heartbeat(

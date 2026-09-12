@@ -7,8 +7,8 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/reverse"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/gateway/relay/reverse"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 func (api *API) serveClaimedTraffic(

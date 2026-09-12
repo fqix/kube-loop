@@ -3,7 +3,7 @@ package authn
 import (
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 // AccessIdentity is reconstructed from an opaque OAuth access token.

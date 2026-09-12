@@ -3,7 +3,7 @@ package mcp
 import (
 	"context"
 
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 func (backend *RemoteBackend) ListPodFiles(

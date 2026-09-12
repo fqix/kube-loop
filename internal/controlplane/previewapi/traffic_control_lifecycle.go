@@ -3,7 +3,7 @@ package previewapi
 import (
 	"context"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/servicebinding"
+	"github.com/fqix/kube-loop/internal/controlplane/servicebinding"
 )
 
 // release deletes the Service this Preview published. Unlike Exchange and

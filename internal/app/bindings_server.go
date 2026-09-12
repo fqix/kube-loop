@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientdiscovery "github.com/fengqi-dev/kube-loop/internal/client/discovery"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 )
 
 const serverProfileCleanupTimeout = 10 * time.Second

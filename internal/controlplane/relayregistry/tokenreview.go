@@ -10,7 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 const podUIDExtra = "authentication.kubernetes.io/pod-uid"

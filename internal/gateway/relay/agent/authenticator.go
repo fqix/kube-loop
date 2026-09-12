@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth/relaybearer"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/auth/relaybearer"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 type TicketAuthenticatorConfig struct {

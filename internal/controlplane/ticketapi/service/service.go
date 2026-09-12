@@ -10,10 +10,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/ticketapi/entity"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/controlplane/ticketapi/entity"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 const OperationTunnel = "tunnel"

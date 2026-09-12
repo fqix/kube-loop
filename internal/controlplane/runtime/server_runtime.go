@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	options "github.com/fengqi-dev/kube-loop/internal/controlplane/config"
-	controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/maintenance"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionregistry"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	options "github.com/fqix/kube-loop/internal/controlplane/config"
+	controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
+	"github.com/fqix/kube-loop/internal/controlplane/maintenance"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionregistry"
 )
 
 type serverRuntimeOptions struct {

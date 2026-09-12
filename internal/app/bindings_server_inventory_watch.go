@@ -7,8 +7,8 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 type ServerInventoryEvent struct {

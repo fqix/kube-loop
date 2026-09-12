@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func (service *Service) List(ctx context.Context) ([]User, error) {

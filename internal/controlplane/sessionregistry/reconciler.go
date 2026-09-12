@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/periodic"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/controlplane/periodic"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 const (

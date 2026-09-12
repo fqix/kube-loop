@@ -16,7 +16,7 @@ import (
 
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 const maximumLocalArchiveEntries = 100_000

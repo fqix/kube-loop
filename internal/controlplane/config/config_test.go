@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	controlplanestorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlplanestorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func TestLoadConfig(t *testing.T) {

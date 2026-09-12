@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionregistry"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficbindingclient"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/capability"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionregistry"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficbindingclient"
+	"github.com/fqix/kube-loop/internal/protocol/capability"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 const (

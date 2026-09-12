@@ -18,17 +18,17 @@ import (
 	"testing"
 	"time"
 
-	clienttraffic "github.com/fengqi-dev/kube-loop/internal/client/traffic"
-	clientwebsocketmux "github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/gateway"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/trojanproxy"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/trojanruntime"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trojanws"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	clienttraffic "github.com/fqix/kube-loop/internal/client/traffic"
+	clientwebsocketmux "github.com/fqix/kube-loop/internal/client/websocketmux"
+	"github.com/fqix/kube-loop/internal/gateway"
+	"github.com/fqix/kube-loop/internal/gateway/trojanproxy"
+	"github.com/fqix/kube-loop/internal/gateway/trojanruntime"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/trojanws"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func TestE2ESharedTunnelPathCarriesControlTCPAndUDP(t *testing.T) {

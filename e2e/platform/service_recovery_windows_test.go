@@ -13,7 +13,7 @@ import (
 
 	"golang.org/x/sys/windows/registry"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 func TestWindowsInstallRecoversMissingServiceImagePath(t *testing.T) {

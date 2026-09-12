@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	clientauth "github.com/fqix/kube-loop/internal/client/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 type memoryStore struct {

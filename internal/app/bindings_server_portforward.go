@@ -4,7 +4,7 @@ package app
 import (
 	"errors"
 
-	clientportforward "github.com/fengqi-dev/kube-loop/internal/client/portforward"
+	clientportforward "github.com/fqix/kube-loop/internal/client/portforward"
 )
 
 func (a *App) StartServerPortForward(request clientportforward.Request) (clientportforward.Info, error) {

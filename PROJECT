@@ -7,7 +7,7 @@ domain: kubeloop.io
 layout:
 - go.kubebuilder.io/v4
 projectName: kubeloop-operator
-repo: github.com/fengqi-dev/kube-loop
+repo: github.com/fqix/kube-loop
 resources:
 - api:
     crdVersion: v1
@@ -16,6 +16,6 @@ resources:
   domain: kubeloop.io
   group: traffic
   kind: TrafficBinding
-  path: github.com/fengqi-dev/kube-loop/api/v1alpha1
+  path: github.com/fqix/kube-loop/api/v1alpha1
   version: v1alpha1
 version: "3"

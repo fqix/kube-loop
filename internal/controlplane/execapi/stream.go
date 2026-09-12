@@ -10,8 +10,8 @@ import (
 	"github.com/gorilla/websocket"
 	"k8s.io/client-go/tools/remotecommand"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
 )
 
 type frameWriter struct {

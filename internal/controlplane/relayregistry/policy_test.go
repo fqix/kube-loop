@@ -10,7 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/kubernetes/fake"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 func TestEndpointHostPolicyAcceptsExactAndSubdomainOnly(t *testing.T) {

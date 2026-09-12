@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	clienttraffic "github.com/fengqi-dev/kube-loop/internal/client/traffic"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	clienttraffic "github.com/fqix/kube-loop/internal/client/traffic"
 )
 
 func (runtime *Runtime) Reconnect(

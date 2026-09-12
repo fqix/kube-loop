@@ -4,7 +4,7 @@ package app
 import (
 	"errors"
 
-	clientpreview "github.com/fengqi-dev/kube-loop/internal/client/preview"
+	clientpreview "github.com/fqix/kube-loop/internal/client/preview"
 )
 
 func (a *App) StartServerPreview(request clientpreview.Request) (clientpreview.Info, error) {

@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	"github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func (client *Client) Refresh(

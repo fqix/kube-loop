@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
 )
 
 func TestHelperCommandVersion(t *testing.T) {

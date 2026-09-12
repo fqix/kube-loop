@@ -12,9 +12,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
 )
 
 func TestPreviewTaskRequiresClusterIPOnlyAfterItIsRunning(t *testing.T) {

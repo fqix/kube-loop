@@ -6,7 +6,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
 )
 
 // NewTunnelHandler lets the control and Trojan transports share the public

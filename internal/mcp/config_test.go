@@ -10,8 +10,8 @@ import (
 
 	"github.com/zalando/go-keyring"
 
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 var clientAPIErrorForTest = clientremote.APIError{

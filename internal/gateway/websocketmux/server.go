@@ -10,7 +10,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
 )
 
 type Identity struct {

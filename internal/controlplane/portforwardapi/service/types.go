@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
 )
 
 // Spec is the normalized request consumed by the Port Forward service.

@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 func TestServerShutdownClosesAndWaitsForHandlers(t *testing.T) {

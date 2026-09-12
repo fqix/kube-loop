@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type WorkerController interface {

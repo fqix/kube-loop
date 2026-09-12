@@ -6,14 +6,14 @@ import (
 	"net"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/listener"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/mirror"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/reverse"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/mirrorstream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/gateway/relay/listener"
+	"github.com/fqix/kube-loop/internal/gateway/relay/mirror"
+	"github.com/fqix/kube-loop/internal/gateway/relay/reverse"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/protocol/mirrorstream"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 type trafficRelay interface {

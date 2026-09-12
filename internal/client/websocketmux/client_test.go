@@ -18,13 +18,13 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v5"
 
-	clientmux "github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
-	servermux "github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	clientmux "github.com/fqix/kube-loop/internal/client/websocketmux"
+	servermux "github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type lockedBuffer struct {

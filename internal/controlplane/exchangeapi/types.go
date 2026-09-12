@@ -1,6 +1,6 @@
 package exchangeapi
 
-import "github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+import "github.com/fqix/kube-loop/internal/protocol/servicemodel"
 
 type Spec struct {
 	Service      string                     `json:"service"`

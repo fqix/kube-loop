@@ -3,7 +3,7 @@ package app
 import (
 	goruntime "runtime"
 
-	"github.com/fengqi-dev/kube-loop/internal/singbox/distribution"
+	"github.com/fqix/kube-loop/internal/singbox/distribution"
 )
 
 func (a *App) Bootstrap() (BootstrapData, error) {

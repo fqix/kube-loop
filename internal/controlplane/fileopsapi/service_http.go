@@ -1,8 +1,8 @@
 package fileopsapi
 
 import (
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/taskapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/taskapi"
 )
 
 // apiErrors names this API in every message a client can see. A reused

@@ -14,11 +14,11 @@ import (
 	"github.com/labstack/echo/v5"
 	"k8s.io/client-go/rest"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/kubeapi"
-	controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/kubeapi"
+	controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
 )
 
 func TestReadOnlyKubernetesRoutesUseIdentityAndStableDocuments(t *testing.T) {

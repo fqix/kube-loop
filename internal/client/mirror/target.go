@@ -3,9 +3,9 @@ package mirror
 import (
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/reverserelay"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/reverserelay"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type LocalTarget = reverserelay.Target

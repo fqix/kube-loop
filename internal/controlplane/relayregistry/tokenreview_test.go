@@ -11,7 +11,7 @@ import (
 	"k8s.io/client-go/kubernetes/fake"
 	ktesting "k8s.io/client-go/testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 func TestTokenReviewAuthenticatorUsesAudienceAndBoundPodUID(t *testing.T) {

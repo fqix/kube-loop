@@ -11,10 +11,10 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/xtaci/smux"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
-	shared "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
+	shared "github.com/fqix/kube-loop/internal/transport/websocketmux"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (h *Handler) BeginDrain() {

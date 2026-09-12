@@ -7,7 +7,7 @@ import (
 
 	"golang.org/x/sys/windows/svc"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 type windowsService struct {

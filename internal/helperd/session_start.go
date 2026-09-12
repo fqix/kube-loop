@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	helperplatform "github.com/fengqi-dev/kube-loop/internal/helperd/platform"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/singbox"
+	"github.com/fqix/kube-loop/internal/helper"
+	helperplatform "github.com/fqix/kube-loop/internal/helperd/platform"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/singbox"
 )
 
 // Server is the privileged helper RPC server.

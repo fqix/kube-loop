@@ -8,15 +8,15 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	clienttraffic "github.com/fengqi-dev/kube-loop/internal/client/traffic"
-	"github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trojanws"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	clienttraffic "github.com/fqix/kube-loop/internal/client/traffic"
+	"github.com/fqix/kube-loop/internal/client/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/trojanws"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func Start(

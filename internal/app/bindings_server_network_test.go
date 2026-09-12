@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func TestServerNetworkSettingsPersistWithoutActiveDataPlane(t *testing.T) {

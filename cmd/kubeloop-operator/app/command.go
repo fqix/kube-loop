@@ -12,8 +12,8 @@ import (
 	"github.com/spf13/viper"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	operatorruntime "github.com/fengqi-dev/kube-loop/internal/operator/runtime"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	operatorruntime "github.com/fqix/kube-loop/internal/operator/runtime"
 )
 
 // NewOperatorCommand returns the kubeloop-operator cobra command.

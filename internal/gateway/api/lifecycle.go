@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 var (

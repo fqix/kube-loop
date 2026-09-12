@@ -8,8 +8,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 // Client talks to the privileged helper over a local socket/pipe.

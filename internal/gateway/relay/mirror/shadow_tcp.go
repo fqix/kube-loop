@@ -7,9 +7,9 @@ import (
 	"net"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/listener"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/mirrorstream"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/gateway/relay/listener"
+	"github.com/fqix/kube-loop/internal/protocol/mirrorstream"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 type tcpPrimaryStream struct {

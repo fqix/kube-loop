@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
 )
 
 func readUpload(

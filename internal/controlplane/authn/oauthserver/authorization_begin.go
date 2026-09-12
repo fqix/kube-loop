@@ -10,7 +10,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/ory/fosite"
 
-	controlstorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlstorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type AuthorizationChallenge struct {

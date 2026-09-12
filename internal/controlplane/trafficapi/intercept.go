@@ -6,11 +6,11 @@ import (
 
 	"k8s.io/client-go/kubernetes"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/servicebinding"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficbindingclient"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/servicebinding"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficbindingclient"
 )
 
 // InterceptResources is the Kubernetes side of a Service-intercepting traffic

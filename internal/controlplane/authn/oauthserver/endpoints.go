@@ -13,8 +13,8 @@ import (
 	"github.com/go-jose/go-jose/v4"
 	"github.com/ory/fosite"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authn"
-	controlstorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/authn"
+	controlstorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type Endpoints struct {

@@ -7,15 +7,15 @@ import (
 	"log/slog"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	adminhttpapi "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/httpapi"
-	adminsession "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/session"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authn/httpauth"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authn/oauthserver"
-	options "github.com/fengqi-dev/kube-loop/internal/controlplane/config"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/health"
-	controlplanestorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	adminhttpapi "github.com/fqix/kube-loop/internal/controlplane/admin/httpapi"
+	adminsession "github.com/fqix/kube-loop/internal/controlplane/admin/session"
+	"github.com/fqix/kube-loop/internal/controlplane/authn/httpauth"
+	"github.com/fqix/kube-loop/internal/controlplane/authn/oauthserver"
+	options "github.com/fqix/kube-loop/internal/controlplane/config"
+	"github.com/fqix/kube-loop/internal/controlplane/health"
+	controlplanestorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func Run(

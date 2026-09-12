@@ -5,10 +5,10 @@ import (
 	"slices"
 	"strings"
 
-	clientexchange "github.com/fengqi-dev/kube-loop/internal/client/exchange"
-	clientmirror "github.com/fengqi-dev/kube-loop/internal/client/mirror"
-	clientportforward "github.com/fengqi-dev/kube-loop/internal/client/portforward"
-	clientpreview "github.com/fengqi-dev/kube-loop/internal/client/preview"
+	clientexchange "github.com/fqix/kube-loop/internal/client/exchange"
+	clientmirror "github.com/fqix/kube-loop/internal/client/mirror"
+	clientportforward "github.com/fqix/kube-loop/internal/client/portforward"
+	clientpreview "github.com/fqix/kube-loop/internal/client/preview"
 )
 
 func (backend *RemoteBackend) StartTraffic(ctx context.Context, request TrafficStartRequest) (TrafficItem, error) {

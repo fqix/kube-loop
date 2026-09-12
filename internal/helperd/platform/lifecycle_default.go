@@ -5,7 +5,7 @@ package platform
 import (
 	"os"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 func ApplyDNS(string, sessionspec.DNSMeta) error     { return nil }

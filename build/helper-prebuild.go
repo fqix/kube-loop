@@ -10,7 +10,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
 )
 
 func main() {
@@ -68,7 +68,7 @@ func main() {
 			"build",
 			"-buildvcs=false",
 			"-trimpath",
-			"-ldflags", "-s -w -X github.com/fengqi-dev/kube-loop/internal/buildinfo.version=" + target.version,
+			"-ldflags", "-s -w -X github.com/fqix/kube-loop/internal/buildinfo.version=" + target.version,
 			"-o", output,
 			target.pkg,
 		}

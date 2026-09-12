@@ -7,7 +7,7 @@ import (
 
 	"k8s.io/component-base/cli"
 
-	"github.com/fengqi-dev/kube-loop/cmd/kubeloop-supervisor/app"
+	"github.com/fqix/kube-loop/cmd/kubeloop-supervisor/app"
 )
 
 func main() {

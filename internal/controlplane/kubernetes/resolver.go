@@ -1,8 +1,8 @@
 package kubernetes
 
 import (
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func subjectFor(identity controlplaneapi.Identity) authorization.Subject {

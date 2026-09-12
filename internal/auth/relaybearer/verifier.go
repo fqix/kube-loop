@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 const DefaultReplayEntries = 65536

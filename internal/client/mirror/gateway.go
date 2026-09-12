@@ -4,12 +4,12 @@ import (
 	"context"
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/reverserelay"
-	"github.com/fengqi-dev/kube-loop/internal/client/taskrelay"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/reverserelay"
+	"github.com/fqix/kube-loop/internal/client/taskrelay"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
 )
 
 // gateway adapts the remote client to taskrelay.Gateway. The client names one

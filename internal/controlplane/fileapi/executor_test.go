@@ -21,8 +21,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/kballard/go-shellquote"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/execapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/execapi"
 )
 
 type recordingPodExecutor struct {

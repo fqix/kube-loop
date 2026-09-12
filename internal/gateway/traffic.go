@@ -9,9 +9,9 @@ import (
 	"slices"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (s *Server) handle(ctx context.Context, client net.Conn, required requiredAuthorization) {

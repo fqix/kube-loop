@@ -7,7 +7,7 @@ import (
 
 	kubernetesclient "k8s.io/client-go/kubernetes"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
 )
 
 const (

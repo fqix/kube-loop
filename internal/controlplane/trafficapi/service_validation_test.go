@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficapi"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficapi"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 func TestNormalizeServicePorts(t *testing.T) {

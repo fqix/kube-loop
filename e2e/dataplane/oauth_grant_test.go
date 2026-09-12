@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func createOAuthGrant(t *testing.T, ctx context.Context, store *storage.Store,

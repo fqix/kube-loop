@@ -10,8 +10,8 @@ import (
 
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
 )
 
 func (manager *Manager) runDownload(

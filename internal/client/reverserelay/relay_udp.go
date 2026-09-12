@@ -5,8 +5,8 @@ import (
 	"errors"
 	"io"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/exchangestream"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/protocol/exchangestream"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func (relay *Relay) datagram(ctx context.Context, frame exchangestream.Frame) error {

@@ -3,9 +3,9 @@ package app
 import (
 	"context"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/helperd"
-	"github.com/fengqi-dev/kube-loop/internal/helperinstall"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helperd"
+	"github.com/fqix/kube-loop/internal/helperinstall"
 )
 
 func productionDependencies() commandDependencies {

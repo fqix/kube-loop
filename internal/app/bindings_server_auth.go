@@ -8,10 +8,10 @@ import (
 
 	"github.com/google/uuid"
 
-	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientdiscovery "github.com/fengqi-dev/kube-loop/internal/client/discovery"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
+	clientauth "github.com/fqix/kube-loop/internal/client/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 )
 
 func (a *App) LoginServerOIDC(profileID, providerID string) (AuthSession, error) {

@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 type decodeResponse[T any] func([]byte, time.Time) (T, error)

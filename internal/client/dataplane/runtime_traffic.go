@@ -7,8 +7,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 // OpenTrafficStream opens one reverse-traffic Task as a logical stream on the

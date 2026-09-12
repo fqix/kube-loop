@@ -4,7 +4,7 @@ package app
 import (
 	"errors"
 
-	clientexchange "github.com/fengqi-dev/kube-loop/internal/client/exchange"
+	clientexchange "github.com/fqix/kube-loop/internal/client/exchange"
 )
 
 func (a *App) StartServerExchange(request clientexchange.Request) (clientexchange.Info, error) {

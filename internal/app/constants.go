@@ -1,7 +1,7 @@
 package app
 
 const (
-	releaseURL                    = "https://github.com/fengqi-dev/kube-loop/releases"
+	releaseURL                    = "https://github.com/fqix/kube-loop/releases"
 	authenticationProviderBrowser = "browser"
 	serverFileKindFile            = "file"
 	serverFileKindDirectory       = "directory"

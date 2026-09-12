@@ -8,8 +8,8 @@ import (
 
 	"github.com/xtaci/smux"
 
-	"github.com/fengqi-dev/kube-loop/internal/transport/streamcopy"
-	protocolmux "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
+	"github.com/fqix/kube-loop/internal/transport/streamcopy"
+	protocolmux "github.com/fqix/kube-loop/internal/transport/websocketmux"
 )
 
 // OpenStream opens one tracked logical connection on the existing WebSocket

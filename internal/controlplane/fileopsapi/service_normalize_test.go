@@ -3,7 +3,7 @@ package fileopsapi
 import (
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func TestNormalizeAppliesActionSpecificPathContracts(t *testing.T) {

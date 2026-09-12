@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 func TestGenerateRoutesOnlyClusterTraffic(t *testing.T) {

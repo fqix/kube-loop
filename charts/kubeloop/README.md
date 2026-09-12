@@ -579,7 +579,7 @@ The public URL is the only address desktop clients will need. It is the HTTP or 
 
 ```shell
 helm upgrade --install kubeloop \
-  oci://ghcr.io/fengqi-dev/kube-loop/charts/kubeloop \
+  oci://ghcr.io/fqix/kube-loop/charts/kubeloop \
   --version 3.0.0 \
   --namespace kubeloop-system \
   --create-namespace \

@@ -5,9 +5,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/traffic"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/client/traffic"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 func (manager *Manager) Status(profileID string) (Status, error) {

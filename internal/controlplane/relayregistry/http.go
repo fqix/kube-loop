@@ -7,8 +7,8 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 const InternalPathPrefix = "/internal/v1/relays"

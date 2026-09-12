@@ -10,9 +10,9 @@ import (
 
 	"sigs.k8s.io/yaml"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth/relaybearer"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trojanws"
+	"github.com/fqix/kube-loop/internal/auth/relaybearer"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/trojanws"
 )
 
 const (

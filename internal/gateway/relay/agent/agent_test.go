@@ -19,9 +19,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/relayregistry"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/controlplane/relayregistry"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 type staticRegistryAuthenticator struct{ identity relaycontrol.PeerIdentity }

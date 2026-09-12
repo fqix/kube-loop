@@ -8,8 +8,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/dns"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/protocol/dns"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 func ResolverDomains(

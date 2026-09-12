@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/remote"
 )
 
 func (manager *Manager) IssueRelayTicket(

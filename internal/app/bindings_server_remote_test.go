@@ -12,12 +12,12 @@ import (
 
 	"github.com/google/uuid"
 
-	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
-	"github.com/fengqi-dev/kube-loop/internal/client/credentials"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	clientremotesession "github.com/fengqi-dev/kube-loop/internal/client/remotesession"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/networkspec"
+	clientauth "github.com/fqix/kube-loop/internal/client/auth"
+	"github.com/fqix/kube-loop/internal/client/credentials"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	clientremotesession "github.com/fqix/kube-loop/internal/client/remotesession"
+	"github.com/fqix/kube-loop/internal/protocol/networkspec"
 )
 
 func TestLoadServerInventoryUsesCapabilitiesAndRemembersNamespace(t *testing.T) {

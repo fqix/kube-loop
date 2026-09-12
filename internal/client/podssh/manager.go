@@ -4,11 +4,11 @@ import (
 	"errors"
 	"sync"
 
-	clientexec "github.com/fengqi-dev/kube-loop/internal/client/exec"
-	localpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh/sshserver"
-	"github.com/fengqi-dev/kube-loop/internal/client/profile"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/client/socksbridge"
+	clientexec "github.com/fqix/kube-loop/internal/client/exec"
+	localpodssh "github.com/fqix/kube-loop/internal/client/podssh/sshserver"
+	"github.com/fqix/kube-loop/internal/client/profile"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/client/socksbridge"
 )
 
 type SessionSource interface {

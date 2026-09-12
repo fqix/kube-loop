@@ -8,7 +8,7 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane"
 )
 
 const contentSecurityPolicy = "default-src 'none'; connect-src 'self'; script-src 'self'; " +

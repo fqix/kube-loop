@@ -5,7 +5,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/transport/streamcopy"
+	"github.com/fqix/kube-loop/internal/transport/streamcopy"
 )
 
 type routedForwarder struct {

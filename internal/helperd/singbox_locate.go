@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	singboxdist "github.com/fengqi-dev/kube-loop/internal/singbox/distribution"
+	"github.com/fqix/kube-loop/internal/helper"
+	singboxdist "github.com/fqix/kube-loop/internal/singbox/distribution"
 )
 
 const goosWindows = "windows"

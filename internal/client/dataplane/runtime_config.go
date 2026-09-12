@@ -6,8 +6,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/client/socksbridge"
-	"github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
+	"github.com/fqix/kube-loop/internal/client/socksbridge"
+	"github.com/fqix/kube-loop/internal/client/websocketmux"
 )
 
 func normalizedConfig(config Config) Config {

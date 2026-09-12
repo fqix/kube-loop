@@ -9,11 +9,11 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/fake"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
-	portforwardservice "github.com/fengqi-dev/kube-loop/internal/controlplane/portforwardapi/service"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
+	portforwardservice "github.com/fqix/kube-loop/internal/controlplane/portforwardapi/service"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 type staticClientProvider struct {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/miekg/dns"
 
-	dnsprotocol "github.com/fengqi-dev/kube-loop/internal/protocol/dns"
+	dnsprotocol "github.com/fqix/kube-loop/internal/protocol/dns"
 )
 
 func dnsSearchCandidates(qname string, search []string, clusterDomains ...string) []string {

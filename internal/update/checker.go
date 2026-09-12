@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	latestReleaseURL = "https://api.github.com/repos/fengqi-dev/kube-loop/releases/latest"
-	releasesPageURL  = "https://github.com/fengqi-dev/kube-loop/releases"
+	latestReleaseURL = "https://api.github.com/repos/fqix/kube-loop/releases/latest"
+	releasesPageURL  = "https://github.com/fqix/kube-loop/releases"
 )
 
 type Info struct {
@@ -80,7 +80,7 @@ func (c *Checker) Check(ctx context.Context) (Info, error) {
 	}
 	info.LatestVersion = release.TagName
 	info.PublishedAt = release.PublishedAt
-	if strings.HasPrefix(release.HTMLURL, "https://github.com/fengqi-dev/kube-loop/") {
+	if strings.HasPrefix(release.HTMLURL, "https://github.com/fqix/kube-loop/") {
 		info.URL = release.HTMLURL
 	}
 	if _, err := parseVersion(current); err == nil {

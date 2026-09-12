@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 type primaryPool struct {

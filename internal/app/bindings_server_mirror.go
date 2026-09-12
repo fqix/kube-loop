@@ -4,7 +4,7 @@ package app
 import (
 	"errors"
 
-	clientmirror "github.com/fengqi-dev/kube-loop/internal/client/mirror"
+	clientmirror "github.com/fqix/kube-loop/internal/client/mirror"
 )
 
 func (a *App) StartServerMirror(request clientmirror.Request) (clientmirror.Info, error) {

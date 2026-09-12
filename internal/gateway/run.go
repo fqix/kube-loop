@@ -13,17 +13,17 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/api"
-	options "github.com/fengqi-dev/kube-loop/internal/gateway/config"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/relay/agent"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/trojanproxy"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/trojanruntime"
-	"github.com/fengqi-dev/kube-loop/internal/gateway/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/logging"
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/gateway/api"
+	options "github.com/fqix/kube-loop/internal/gateway/config"
+	"github.com/fqix/kube-loop/internal/gateway/relay/agent"
+	"github.com/fqix/kube-loop/internal/gateway/trojanproxy"
+	"github.com/fqix/kube-loop/internal/gateway/trojanruntime"
+	"github.com/fqix/kube-loop/internal/gateway/websocketmux"
+	"github.com/fqix/kube-loop/internal/logging"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 func Run(

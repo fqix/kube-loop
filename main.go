@@ -13,8 +13,8 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 	macoptions "github.com/wailsapp/wails/v2/pkg/options/mac"
 
-	desktopapp "github.com/fengqi-dev/kube-loop/internal/app"
-	internalLogging "github.com/fengqi-dev/kube-loop/internal/logging"
+	desktopapp "github.com/fqix/kube-loop/internal/app"
+	internalLogging "github.com/fqix/kube-loop/internal/logging"
 )
 
 //go:embed all:frontend/dist

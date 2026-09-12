@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/helperinstall"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helperinstall"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 // NewPrivileged returns a Runtime backed by the narrowly scoped local helper.

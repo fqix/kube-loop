@@ -28,7 +28,7 @@ COPY internal/operator ./internal/operator
 # the docker BUILDPLATFORM arg will be linux/arm64 when for Apple x86 it will be linux/amd64. Therefore,
 # by leaving it empty we can ensure that the container and binary shipped on it will have the same platform.
 RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -a -trimpath \
-  -ldflags="-s -w -X github.com/fengqi-dev/kube-loop/internal/buildinfo.version=${VERSION}" \
+  -ldflags="-s -w -X github.com/fqix/kube-loop/internal/buildinfo.version=${VERSION}" \
   -o /out/manager ./cmd/kubeloop-operator
 
 # Use distroless as minimal base image to package the manager binary

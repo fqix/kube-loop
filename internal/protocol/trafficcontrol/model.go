@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 const (

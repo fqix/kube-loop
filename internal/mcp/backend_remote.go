@@ -8,10 +8,10 @@ import (
 	"sync"
 	"time"
 
-	clientexec "github.com/fengqi-dev/kube-loop/internal/client/exec"
-	clientfiletransfer "github.com/fengqi-dev/kube-loop/internal/client/filetransfer"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
+	clientexec "github.com/fqix/kube-loop/internal/client/exec"
+	clientfiletransfer "github.com/fqix/kube-loop/internal/client/filetransfer"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
 )
 
 const maximumCommandOutput = 1 << 20

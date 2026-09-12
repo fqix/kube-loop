@@ -11,7 +11,7 @@ import (
 
 	"github.com/kballard/go-shellquote"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 func ElevateInstall(

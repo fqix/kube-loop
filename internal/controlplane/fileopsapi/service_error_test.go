@@ -4,8 +4,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func TestStorageErrorMapsStablePublicCategories(t *testing.T) {

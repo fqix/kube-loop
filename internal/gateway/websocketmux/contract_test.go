@@ -13,9 +13,9 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/xtaci/smux"
 
-	shared "github.com/fengqi-dev/kube-loop/internal/client/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
-	protocolmux "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
+	shared "github.com/fqix/kube-loop/internal/client/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
+	protocolmux "github.com/fqix/kube-loop/internal/transport/websocketmux"
 )
 
 func TestContractNewClientAndOldGatewayClassifiesVersionMismatch(t *testing.T) {

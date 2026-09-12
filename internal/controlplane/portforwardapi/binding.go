@@ -5,11 +5,11 @@ import (
 	"errors"
 	"math"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	portforwardservice "github.com/fengqi-dev/kube-loop/internal/controlplane/portforwardapi/service"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficbindingclient"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	portforwardservice "github.com/fqix/kube-loop/internal/controlplane/portforwardapi/service"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficbindingclient"
 )
 
 type TrafficBindingManager struct {

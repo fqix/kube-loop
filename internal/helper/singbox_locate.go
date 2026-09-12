@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/componentstore"
 )
 
 // LocateBundledSingBox finds the packaged sing-box binary next to the desktop

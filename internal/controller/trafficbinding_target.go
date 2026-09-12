@@ -8,7 +8,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/types"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
 )
 
 const (

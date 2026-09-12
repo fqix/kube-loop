@@ -8,14 +8,14 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	adminbootstrap "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/bootstrap"
-	adminlocaluser "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/localuser"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authorization"
-	options "github.com/fengqi-dev/kube-loop/internal/controlplane/config"
-	controlplanekubernetes "github.com/fengqi-dev/kube-loop/internal/controlplane/kubernetes"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/maintenance"
-	controlplanestorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	adminbootstrap "github.com/fqix/kube-loop/internal/controlplane/admin/bootstrap"
+	adminlocaluser "github.com/fqix/kube-loop/internal/controlplane/admin/localuser"
+	"github.com/fqix/kube-loop/internal/controlplane/authorization"
+	options "github.com/fqix/kube-loop/internal/controlplane/config"
+	controlplanekubernetes "github.com/fqix/kube-loop/internal/controlplane/kubernetes"
+	"github.com/fqix/kube-loop/internal/controlplane/maintenance"
+	controlplanestorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type bootstrapRuntime struct {

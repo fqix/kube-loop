@@ -13,9 +13,9 @@ import (
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	adminsession "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/session"
-	adminui "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/ui"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	adminsession "github.com/fqix/kube-loop/internal/controlplane/admin/session"
+	adminui "github.com/fqix/kube-loop/internal/controlplane/admin/ui"
 )
 
 const (

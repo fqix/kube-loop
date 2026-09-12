@@ -6,9 +6,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/helperinstall"
-	"github.com/fengqi-dev/kube-loop/internal/supervisor"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helperinstall"
+	"github.com/fqix/kube-loop/internal/supervisor"
 )
 
 const (

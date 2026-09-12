@@ -10,12 +10,12 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/helperrpc"
-	supervisorproto "github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
-	"github.com/fengqi-dev/kube-loop/internal/supervisor"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/protocol/helperrpc"
+	supervisorproto "github.com/fqix/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/supervisor"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func requiresSupervisorCheck(enforceBinaryMatch bool) bool { return enforceBinaryMatch }

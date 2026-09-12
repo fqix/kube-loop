@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	clientdataplane "github.com/fengqi-dev/kube-loop/internal/client/dataplane"
-	clientprofile "github.com/fengqi-dev/kube-loop/internal/client/profile"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/networkdiag"
+	clientdataplane "github.com/fqix/kube-loop/internal/client/dataplane"
+	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/networkdiag"
 )
 
 const serverTaskSynchronizationTimeout = 3 * time.Second

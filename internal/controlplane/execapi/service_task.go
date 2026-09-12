@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func specFromTask(task storage.Task) (Spec, error) {

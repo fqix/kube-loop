@@ -7,7 +7,7 @@ import (
 	"maps"
 	"os"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/filestream"
+	"github.com/fqix/kube-loop/internal/protocol/filestream"
 )
 
 func (manager *Manager) launch(ctx context.Context, task Task, entry *activeTransfer) error {

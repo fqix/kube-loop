@@ -8,9 +8,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/gateway"
-	options "github.com/fengqi-dev/kube-loop/internal/gateway/config"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/gateway"
+	options "github.com/fqix/kube-loop/internal/gateway/config"
 )
 
 // NewGatewayCommand returns the kubeloop-gateway cobra command.

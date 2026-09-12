@@ -4,9 +4,9 @@ import (
 	"strings"
 	"time"
 
-	trafficv1alpha1 "github.com/fengqi-dev/kube-loop/api/v1alpha1"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/remotetask"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/servicemodel"
+	trafficv1alpha1 "github.com/fqix/kube-loop/api/v1alpha1"
+	"github.com/fqix/kube-loop/internal/protocol/remotetask"
+	"github.com/fqix/kube-loop/internal/protocol/servicemodel"
 )
 
 func State(binding *trafficv1alpha1.TrafficBinding) remotetask.State {

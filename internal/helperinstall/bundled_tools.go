@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/fengqi-dev/kube-loop/internal/componentstore"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/componentstore"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 const (

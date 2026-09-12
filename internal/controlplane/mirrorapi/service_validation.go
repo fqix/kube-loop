@@ -1,8 +1,8 @@
 package mirrorapi
 
 import (
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/trafficapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/trafficapi"
 )
 
 func normalizeRequest(spec *Spec) *controlplaneapi.Error {

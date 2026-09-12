@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	helperplatform "github.com/fengqi-dev/kube-loop/internal/helperd/platform"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/sessionspec"
+	helperplatform "github.com/fqix/kube-loop/internal/helperd/platform"
+	"github.com/fqix/kube-loop/internal/protocol/sessionspec"
 )
 
 // Server is the privileged helper RPC server.

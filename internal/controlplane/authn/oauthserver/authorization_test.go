@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	controlstorage "github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	controlstorage "github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 func TestConsentRequiredUsesTrustAndExactScopeGrant(t *testing.T) {

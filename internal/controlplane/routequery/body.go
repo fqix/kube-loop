@@ -4,7 +4,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
 )
 
 func RequireEmptyBody(request *http.Request) *controlplaneapi.Error {

@@ -3,7 +3,7 @@ package mcp
 import (
 	"strings"
 
-	clientfiletransfer "github.com/fengqi-dev/kube-loop/internal/client/filetransfer"
+	clientfiletransfer "github.com/fqix/kube-loop/internal/client/filetransfer"
 )
 
 func manageFileTransfer(backend Backend, input manageFileTransferIn) (manageFileTransferOut, error) {

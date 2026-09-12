@@ -12,9 +12,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v5"
 
-	adminauthentication "github.com/fengqi-dev/kube-loop/internal/controlplane/admin/authentication"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/authn"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/storage"
+	adminauthentication "github.com/fqix/kube-loop/internal/controlplane/admin/authentication"
+	"github.com/fqix/kube-loop/internal/controlplane/authn"
+	"github.com/fqix/kube-loop/internal/controlplane/storage"
 )
 
 type TokenAuthenticator interface {

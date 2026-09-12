@@ -8,15 +8,15 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
-	clientauth "github.com/fengqi-dev/kube-loop/internal/client/auth"
-	clientdataplane "github.com/fengqi-dev/kube-loop/internal/client/dataplane"
-	clientexec "github.com/fengqi-dev/kube-loop/internal/client/exec"
-	clientfiletransfer "github.com/fengqi-dev/kube-loop/internal/client/filetransfer"
-	clientforward "github.com/fengqi-dev/kube-loop/internal/client/forwardruntime"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
-	clientremotesession "github.com/fengqi-dev/kube-loop/internal/client/remotesession"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	clientauth "github.com/fqix/kube-loop/internal/client/auth"
+	clientdataplane "github.com/fqix/kube-loop/internal/client/dataplane"
+	clientexec "github.com/fqix/kube-loop/internal/client/exec"
+	clientfiletransfer "github.com/fqix/kube-loop/internal/client/filetransfer"
+	clientforward "github.com/fqix/kube-loop/internal/client/forwardruntime"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
+	clientremotesession "github.com/fqix/kube-loop/internal/client/remotesession"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func configureRemoteRuntime(

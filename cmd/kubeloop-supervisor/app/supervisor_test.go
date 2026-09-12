@@ -9,10 +9,10 @@ import (
 	"io"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	"github.com/fengqi-dev/kube-loop/internal/helper"
-	"github.com/fengqi-dev/kube-loop/internal/supervisor"
-	supervisorapp "github.com/fengqi-dev/kube-loop/internal/supervisorapp"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	"github.com/fqix/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/supervisor"
+	supervisorapp "github.com/fqix/kube-loop/internal/supervisorapp"
 )
 
 var testBuildInfo = buildinfo.Info{Version: "1.2.3"}

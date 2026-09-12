@@ -7,10 +7,10 @@ import (
 	"io"
 	"sync"
 
-	clientexec "github.com/fengqi-dev/kube-loop/internal/client/exec"
-	localpodssh "github.com/fengqi-dev/kube-loop/internal/client/podssh/sshserver"
-	"github.com/fengqi-dev/kube-loop/internal/client/remote"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/execstream"
+	clientexec "github.com/fqix/kube-loop/internal/client/exec"
+	localpodssh "github.com/fqix/kube-loop/internal/client/podssh/sshserver"
+	"github.com/fqix/kube-loop/internal/client/remote"
+	"github.com/fqix/kube-loop/internal/protocol/execstream"
 )
 
 type remoteExecutor struct {

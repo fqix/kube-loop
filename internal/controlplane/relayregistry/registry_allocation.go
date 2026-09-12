@@ -3,7 +3,7 @@ package relayregistry
 import (
 	"slices"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
 )
 
 func (registry *Registry) Allocate(

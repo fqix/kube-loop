@@ -3,7 +3,7 @@ package app
 import (
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/mcp"
+	"github.com/fqix/kube-loop/internal/mcp"
 )
 
 func (a *App) GetMCPStatus() mcp.Status {

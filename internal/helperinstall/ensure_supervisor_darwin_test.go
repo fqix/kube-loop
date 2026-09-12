@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/supervisor"
+	"github.com/fqix/kube-loop/internal/protocol/supervisor"
 )
 
 func TestInstalledCoreMatches(t *testing.T) {

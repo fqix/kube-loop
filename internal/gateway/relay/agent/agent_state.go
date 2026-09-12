@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/trafficcontrol"
+	"github.com/fqix/kube-loop/internal/protocol/trafficcontrol"
 )
 
 func (agent *Agent) Ready() bool {

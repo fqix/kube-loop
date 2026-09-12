@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/auth"
+	"github.com/fqix/kube-loop/internal/auth"
 )
 
 // EnsureBuiltinOAuthClients creates the first-party public clients without

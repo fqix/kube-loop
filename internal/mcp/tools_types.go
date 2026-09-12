@@ -1,8 +1,8 @@
 package mcp
 
 import (
-	clientfiletransfer "github.com/fengqi-dev/kube-loop/internal/client/filetransfer"
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientfiletransfer "github.com/fqix/kube-loop/internal/client/filetransfer"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 type manageClusterIn struct {

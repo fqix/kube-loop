@@ -1,10 +1,10 @@
 # Download the latest KubeLoop desktop release for Windows.
 # Usage:
-#   irm https://raw.githubusercontent.com/fengqi-dev/kube-loop/main/scripts/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/fqix/kube-loop/main/scripts/install.ps1 | iex
 #   .\scripts\install.ps1 -Version v1.1.0
 param(
   [string]$Version = $env:VERSION,
-  [string]$Repo = $(if ($env:REPO) { $env:REPO } else { "fengqi-dev/kube-loop" }),
+  [string]$Repo = $(if ($env:REPO) { $env:REPO } else { "fqix/kube-loop" }),
   [string]$Dest = (Get-Location).Path,
   [ValidateSet("installer", "portable")]
   [string]$Package = "installer"

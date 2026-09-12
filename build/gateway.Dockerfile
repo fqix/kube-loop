@@ -6,7 +6,7 @@ RUN go mod download
 COPY cmd/kubeloop-gateway ./cmd/kubeloop-gateway
 COPY internal ./internal
 RUN CGO_ENABLED=0 go build -trimpath \
-  -ldflags="-s -w -X github.com/fengqi-dev/kube-loop/internal/buildinfo.version=${VERSION}" \
+  -ldflags="-s -w -X github.com/fqix/kube-loop/internal/buildinfo.version=${VERSION}" \
   -o /out/kubeloop-gateway ./cmd/kubeloop-gateway
 
 FROM golang:1.27-alpine AS singbox

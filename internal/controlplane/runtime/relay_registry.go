@@ -11,9 +11,9 @@ import (
 
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/relayregistry"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relaycontrol"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/relayticket"
+	"github.com/fqix/kube-loop/internal/controlplane/relayregistry"
+	"github.com/fqix/kube-loop/internal/protocol/relaycontrol"
+	"github.com/fqix/kube-loop/internal/protocol/relayticket"
 )
 
 type relayRegistryOptions struct {

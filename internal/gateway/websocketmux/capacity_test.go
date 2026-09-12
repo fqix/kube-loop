@@ -14,7 +14,7 @@ import (
 
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/gateway/api"
+	"github.com/fqix/kube-loop/internal/gateway/api"
 )
 
 type capacityGatewayState struct{}

@@ -15,9 +15,9 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/xtaci/smux"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
-	protocolmux "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
+	protocolmux "github.com/fqix/kube-loop/internal/transport/websocketmux"
 )
 
 const Subprotocol = wss.Subprotocol

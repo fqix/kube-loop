@@ -14,11 +14,11 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/xtaci/smux"
 
-	"github.com/fengqi-dev/kube-loop/internal/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/protocol/wss"
-	"github.com/fengqi-dev/kube-loop/internal/transport/websocketio"
-	protocolmux "github.com/fengqi-dev/kube-loop/internal/transport/websocketmux"
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/middleware"
+	"github.com/fqix/kube-loop/internal/protocol/wss"
+	"github.com/fqix/kube-loop/internal/transport/websocketio"
+	protocolmux "github.com/fqix/kube-loop/internal/transport/websocketmux"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 func newWebSocketDialer(transport *http.Transport) websocket.Dialer {

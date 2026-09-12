@@ -15,7 +15,7 @@ controlPlane:
     # is still database-managed and deny-by-default.
     enabled: false
   image:
-    repository: ghcr.io/fengqi-dev/kube-loop/control-plane
+    repository: ghcr.io/fqix/kube-loop/control-plane
     tag: ""
     pullPolicy: IfNotPresent
   minClientVersion: ""
@@ -144,7 +144,7 @@ controlPlane:
 operator:
   replicas: 1
   image:
-    repository: ghcr.io/fengqi-dev/kube-loop/operator
+    repository: ghcr.io/fqix/kube-loop/operator
     tag: ""
     pullPolicy: IfNotPresent
   leaderElection: true
@@ -166,7 +166,7 @@ dataPlane:
   replicas: 1
   logLevel: info
   image:
-    repository: ghcr.io/fengqi-dev/kube-loop/gateway
+    repository: ghcr.io/fqix/kube-loop/gateway
     tag: ""
     pullPolicy: IfNotPresent
   tunnelPath: /tunnel

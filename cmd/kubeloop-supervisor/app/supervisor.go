@@ -10,8 +10,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fengqi-dev/kube-loop/internal/buildinfo"
-	supervisorapp "github.com/fengqi-dev/kube-loop/internal/supervisorapp"
+	"github.com/fqix/kube-loop/internal/buildinfo"
+	supervisorapp "github.com/fqix/kube-loop/internal/supervisorapp"
 )
 
 // NewSupervisorCommand returns the kubeloop-supervisor cobra command.

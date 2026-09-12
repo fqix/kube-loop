@@ -8,12 +8,12 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v5"
 
-	"github.com/fengqi-dev/kube-loop/internal/controlplane"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/controlplaneapi"
-	controlplanemiddleware "github.com/fengqi-dev/kube-loop/internal/controlplane/middleware"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/routequery"
-	"github.com/fengqi-dev/kube-loop/internal/controlplane/sessionapi"
-	ticketservice "github.com/fengqi-dev/kube-loop/internal/controlplane/ticketapi/service"
+	"github.com/fqix/kube-loop/internal/controlplane"
+	"github.com/fqix/kube-loop/internal/controlplane/controlplaneapi"
+	controlplanemiddleware "github.com/fqix/kube-loop/internal/controlplane/middleware"
+	"github.com/fqix/kube-loop/internal/controlplane/routequery"
+	"github.com/fqix/kube-loop/internal/controlplane/sessionapi"
+	ticketservice "github.com/fqix/kube-loop/internal/controlplane/ticketapi/service"
 )
 
 type SessionValidator interface {

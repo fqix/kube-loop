@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	clientremote "github.com/fengqi-dev/kube-loop/internal/client/remote"
+	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
 
 func managePodFiles(ctx context.Context, backend Backend, input managePodFilesIn) (managePodFilesOut, error) {

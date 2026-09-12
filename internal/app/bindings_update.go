@@ -8,7 +8,7 @@ import (
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 
-	"github.com/fengqi-dev/kube-loop/internal/update"
+	"github.com/fqix/kube-loop/internal/update"
 )
 
 func (a *App) CheckForUpdates() update.Info {

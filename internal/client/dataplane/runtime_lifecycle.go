@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/fengqi-dev/kube-loop/internal/protocol/tunnel"
+	"github.com/fqix/kube-loop/internal/protocol/tunnel"
 )
 
 func (runtime *Runtime) Done() <-chan struct{} { return runtime.done }

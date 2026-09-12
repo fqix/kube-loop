@@ -5,7 +5,7 @@ package supervisor
 import (
 	"path/filepath"
 
-	"github.com/fengqi-dev/kube-loop/internal/helper"
+	"github.com/fqix/kube-loop/internal/helper"
 )
 
 const (

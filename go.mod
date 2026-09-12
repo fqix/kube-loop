@@ -1,4 +1,4 @@
-module github.com/fengqi-dev/kube-loop
+module github.com/fqix/kube-loop
 
 go 1.27.1
 

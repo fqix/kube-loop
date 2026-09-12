@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fengqi-dev/kube-loop/internal/transport/trafficstream"
+	"github.com/fqix/kube-loop/internal/transport/trafficstream"
 )
 
 type shadowMessage struct {

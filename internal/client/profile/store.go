@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/fengqi-dev/kube-loop/internal/utils"
+	"github.com/fqix/kube-loop/internal/utils"
 )
 
 type State struct {

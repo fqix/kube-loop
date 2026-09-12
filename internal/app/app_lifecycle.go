@@ -7,29 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wailsapp/wails/v2/pkg/runtime"
-
 	"github.com/fqix/kube-loop/internal/client/powerwatch"
 )
 
 func StartupHandler(a *App) func(context.Context) { return a.startup }
 
 func ShutdownHandler(a *App) func(context.Context) { return a.shutdown }
-
-func ShowWindow(a *App) {
-	if a.ctx == nil {
-		return
-	}
-	runtime.WindowUnminimise(a.ctx)
-	runtime.WindowShow(a.ctx)
-}
-
-func Quit(a *App) {
-	if a.ctx == nil {
-		return
-	}
-	runtime.Quit(a.ctx)
-}
 
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
@@ -79,7 +62,7 @@ func (a *App) startup(ctx context.Context) {
 		if a.updater != nil {
 			a.backgroundWG.Go(func() {
 				state := a.checkForUpdates(backgroundContext)
-				runtime.EventsEmit(backgroundContext, "update:state", state)
+				a.emit("update:state", state)
 			})
 		}
 	})

@@ -6,7 +6,7 @@
       "type": "npm",
       "script": "install",
       "options": {
-        "cwd": "${workspaceFolder}/frontend"
+        "cwd": "${workspaceFolder}"
       },
       "presentation": {
         "reveal": "silent",
@@ -20,7 +20,7 @@
       "type": "npm",
       "script": "build",
       "options": {
-        "cwd": "${workspaceFolder}/frontend"
+        "cwd": "${workspaceFolder}"
       },
       "presentation": {
         "reveal": "silent",
@@ -74,7 +74,7 @@
         "-gcflags",
         "all=-N -l",
         "-o",
-        "build/bin/KubeLoop"
+        "build/bin/kubeloop-backend"
       ],
       "windows": {
         "args": [
@@ -84,7 +84,7 @@
           "-gcflags",
           "all=-N -l",
           "-o",
-          "build/bin/KubeLoop.exe"
+          "build/bin/kubeloop-backend.exe"
         ]
       },
       "dependsOn": [
@@ -119,12 +119,9 @@
       }
     },
     {
-      "label": "KubeLoop: wails dev with sing-box source",
-      "type": "process",
-      "command": "wails",
-      "args": [
-        "dev"
-      ],
+      "label": "KubeLoop: electron dev with sing-box source",
+      "type": "npm",
+      "script": "dev",
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {

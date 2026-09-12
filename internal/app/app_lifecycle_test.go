@@ -19,8 +19,6 @@ func TestLifecycleAdaptersWithoutRuntimeContext(t *testing.T) {
 		t.Fatal("ShutdownHandler returned nil")
 	}
 
-	ShowWindow(application)
-	Quit(application)
 	shutdown(t.Context())
 }
 

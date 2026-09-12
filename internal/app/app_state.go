@@ -26,6 +26,7 @@ import (
 
 type App struct {
 	ctx                     context.Context
+	host                    hostRef
 	profiles                *clientprofile.Store
 	discovery               *clientdiscovery.Client
 	auth                    *clientauth.Client

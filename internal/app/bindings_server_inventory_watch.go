@@ -5,8 +5,6 @@ import (
 	"slices"
 	"time"
 
-	"github.com/wailsapp/wails/v2/pkg/runtime"
-
 	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 	clientremote "github.com/fqix/kube-loop/internal/client/remote"
 )
@@ -82,7 +80,7 @@ func (a *App) runServerInventoryWatch(
 
 func (a *App) emitServerInventoryEvent(event ServerInventoryEvent) {
 	if a.ctx != nil {
-		runtime.EventsEmit(a.ctx, "server-inventory:snapshot", event)
+		a.emit("server-inventory:snapshot", event)
 	}
 }
 

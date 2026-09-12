@@ -129,7 +129,7 @@ subprotocol.
 - Gateway rolling restart and client reconciliation.
 - idempotent Pause/Delete cleanup and finalizer removal.
 - `go test ./...`, `go test -race` for changed concurrent packages,
-  `go vet ./...`, lint, Wails build, Helm tests, and Linux/Windows/macOS E2E.
+  `go vet ./...`, lint, desktop build, Helm tests, and Linux/Windows/macOS E2E.
 
 ## Consequences
 

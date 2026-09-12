@@ -2,17 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Wails: Debug KubeLoop",
+      "name": "Electron: Attach to kubeloop-backend",
       "type": "go",
-      "request": "launch",
-      "mode": "exec",
-      "program": "${workspaceFolder}/build/bin/KubeLoop",
-      "windows": {
-        "program": "${workspaceFolder}/build/bin/KubeLoop.exe"
-      },
-      "preLaunchTask": "build",
-      "cwd": "${workspaceFolder}",
-      "env": {}
+      "request": "attach",
+      "mode": "local",
+      "processId": "kubeloop-backend",
+      "cwd": "${workspaceFolder}"
     },
     {
       "name": "Go: Test package",

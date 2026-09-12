@@ -40,7 +40,7 @@ V2 完成时应满足：
 
 ### 2.2 保留在客户端
 
-- Wails/React UI。
+- Electron/React UI（Go 后端作为 sidecar 进程，见 ADR 0025）。
 - 身份认证发起、Token 安全存储和刷新。
 - 本地 TUN、路由、split DNS、sing-box 和特权 Helper。
 - 本地开发进程和本地监听端口。
@@ -197,7 +197,7 @@ SQLite 模式的部署约束：
 
 - [x] **V2-100：建立 Control Plane 可执行入口。**
   - 建立独立的 Control Plane command、配置加载、结构化日志和优雅关闭。
-  - Control Plane 不加载桌面 Store、Wails runtime、本地 Helper 或 Data Plane socket runtime。
+  - Control Plane 不加载桌面 Store、桌面 IPC runtime、本地 Helper 或 Data Plane socket runtime。
   - 提供 build version、commit、protocol min/max version。
   - 2026-08-09：已新增 `cmd/kubeloop-control-plane`，支持 flag/env 配置、JSON 结构化日志、信号优雅关闭和构建/协议元数据；架构测试持续阻止其依赖 V1 桌面与数据面运行时。
 

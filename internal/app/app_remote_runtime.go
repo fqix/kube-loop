@@ -3,10 +3,7 @@ package app
 import (
 	"context"
 	"crypto/tls"
-	"errors"
 	"path/filepath"
-
-	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	clientauth "github.com/fqix/kube-loop/internal/client/auth"
 	clientdataplane "github.com/fqix/kube-loop/internal/client/dataplane"
@@ -27,21 +24,9 @@ func configureRemoteRuntime(
 	dependencies appDependencies,
 ) bool {
 	application.auth = clientauth.New(clientauth.Config{
-		HTTPClient: dependencies.httpClient,
-		OpenBrowser: func(target string) error {
-			if application.ctx == nil {
-				return errors.New("application is not ready")
-			}
-			runtime.BrowserOpenURL(application.ctx, target)
-			return nil
-		},
-		BrowserCallback: func() {
-			if application.ctx == nil {
-				return
-			}
-			runtime.WindowUnminimise(application.ctx)
-			runtime.Show(application.ctx)
-		},
+		HTTPClient:      dependencies.httpClient,
+		OpenBrowser:     application.openURL,
+		BrowserCallback: application.showWindow,
 	})
 	remoteClient, remoteErr := clientremote.New(
 		application.credentials, application.auth, clientremote.Config{HTTPClient: dependencies.httpClient},
@@ -55,9 +40,7 @@ func configureRemoteRuntime(
 	remoteFiles, fileErr := clientfiletransfer.NewManager(remoteClient, clientfiletransfer.Config{
 		StatePath: filepath.Join(layout.StateDir(), "transfers.json"),
 		OnEvent: func(task clientfiletransfer.Task) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "server-file-transfer:event", task)
-			}
+			application.emit("server-file-transfer:event", task)
 		},
 	})
 	if fileErr != nil {
@@ -68,9 +51,7 @@ func configureRemoteRuntime(
 
 	remoteExecs, execErr := clientexec.NewManager(remoteClient, clientexec.ManagerConfig{
 		OnEvent: func(event clientexec.Event) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "server-exec:event", event)
-			}
+			application.emit("server-exec:event", event)
 		},
 	})
 	if execErr != nil {
@@ -103,9 +84,7 @@ func configureRemoteRuntime(
 			})
 		},
 		OnStatus: func(event clientdataplane.StatusEvent) {
-			if application.ctx != nil {
-				runtime.EventsEmit(application.ctx, "dataplane:status", event)
-			}
+			application.emit("dataplane:status", event)
 		},
 	})
 	if dataPlaneErr != nil {

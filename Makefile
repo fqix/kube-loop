@@ -52,6 +52,24 @@ SINGBOX_BINARY = build/bin/sing-box$(if $(filter windows,$(SINGBOX_GOOS)),.exe,)
 help: ## Display this help.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_0-9-]+:.*?##/ { printf "  \033[36m%-28s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
+##@ Desktop application
+
+.PHONY: desktop-backend
+desktop-backend: ## Build the Go desktop backend, privileged helper and sing-box into build/bin.
+	go run ./build/desktop-backend.go
+
+.PHONY: desktop-build
+desktop-build: desktop-backend ## Bundle the Electron main, preload and renderer entries with electron-vite.
+	npm run build
+
+.PHONY: desktop-package
+desktop-package: desktop-build ## Package the desktop application for the current platform with electron-builder.
+	npm run package
+
+.PHONY: desktop-dev
+desktop-dev: ## Run the desktop application against the local development stack.
+	npm run dev
+
 ##@ Management frontend
 
 .PHONY: admin-frontend-install

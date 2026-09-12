@@ -1,0 +1,118 @@
+# electron-builder configuration for the KubeLoop desktop shell.
+#
+# The Go backend, the patched sing-box and the privileged helper are built by
+# `go run ./build/desktop-backend.go` into build/bin and shipped as extra
+# resources next to the Electron binary. electron-vite bundles the main,
+# preload and renderer entries from src/ into out/.
+appId: dev.fengqi.kube-loop
+productName: KubeLoop
+copyright: Copyright © KubeLoop
+artifactName: kubeloop-desktop-${version}-${os}-${arch}.${ext}
+
+directories:
+  # Artifacts are moved into dist/ by the release workflow.
+  output: build/desktop-package
+  buildResources: build
+
+files:
+  - out/**/*
+  - package.json
+  - "!node_modules/**/*"
+
+# The renderer bundle already contains every dependency; nothing native is used.
+npmRebuild: false
+asar: true
+
+extraResources:
+  - from: build/bin/
+    to: .
+    filter:
+      - kubeloop-backend
+      - kubeloop-backend.exe
+      - sing-box
+      - sing-box.exe
+      - LICENSE.sing-box.txt
+      - libcronet.dll
+      - wintun.dll
+  - from: build/appicon.png
+    to: appicon.png
+
+protocols:
+  - name: KubeLoop login callback
+    schemes: [kubeloop]
+    role: Viewer
+
+mac:
+  category: public.app-category.developer-tools
+  icon: build/appicon.png
+  target:
+    - target: dmg
+    - target: tar.gz
+  # Ad-hoc signature keeps Gatekeeper from flagging the bundle as damaged;
+  # notarisation requires Apple credentials the release pipeline does not hold.
+  identity: null
+  minimumSystemVersion: "11.0"
+  extendInfo:
+    LSMinimumSystemVersion: "11.0"
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+
+win:
+  icon: build/appicon.png
+  target:
+    - target: nsis
+    - target: zip
+  extraResources:
+    - from: build/bin/resources/kubeloop-helper.exe
+      to: kubeloop-helper.exe
+
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
+  artifactName: kubeloop-desktop-${version}-${os}-${arch}-installer.${ext}
+  shortcutName: KubeLoop
+
+linux:
+  icon: build/appicon.png
+  category: Development;Network
+  synopsis: Local development network for Kubernetes
+  description: Connect your laptop to a cluster with TUN routing, DNS, and port tools.
+  executableName: kubeloop
+  maintainer: KubeLoop <noreply@users.noreply.github.com>
+  target:
+    - target: deb
+    - target: rpm
+    - target: tar.gz
+  desktop:
+    entry:
+      Name: KubeLoop
+      GenericName: Kubernetes Local Network
+      Comment: Local development network for Kubernetes
+      Categories: Development;Network;
+      StartupNotify: "true"
+  mimeTypes:
+    - x-scheme-handler/kubeloop
+
+deb:
+  packageName: kubeloop
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libuuid1
+    - libsecret-1-0
+
+rpm:
+  packageName: kubeloop

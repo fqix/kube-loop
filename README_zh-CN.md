@@ -196,20 +196,31 @@ MCP 默认关闭，仅监听 `127.0.0.1`，并默认使用自动生成的 Bearer
 
 - [`go.mod`](go.mod) 声明的 Go 版本
 - Node.js 22+
-- 当前平台的 [Wails 前置依赖](https://wails.io/docs/gettingstarted/installation)
+- Electron 由仓库根目录的 `npm ci` 自动下载；Linux 打包 RPM 还需要安装 `rpm`
 
 ```bash
-make build          # 构建桌面应用
+npm ci              # 桌面应用（Electron + React 渲染层）
+make desktop-build  # 构建 Go 后端、sing-box 与 Electron 壳
+make desktop-package # 在 build/desktop-package/ 下生成安装包
 make test-local     # 运行非 E2E 测试与 vet
 make vulncheck      # 检查 Go 依赖的已知漏洞
 ```
 
-常用前端命令：
+桌面应用（仓库根目录，[electron-vite](https://electron-vite.org) 标准布局：
+`src/main`、`src/preload`、`src/renderer` → `out/`）：
+
+```bash
+npm run dev          # 本地开发栈 + Go 后端 + 带 HMR 的 Electron
+npm run dev:shell    # 仅 Electron + 渲染层（build/bin 中需已有后端）
+npm run typecheck
+npm test
+```
+
+浏览器前端：
 
 ```bash
 cd frontend
 npm ci
-npm run dev          # 桌面端前端
 npm run dev:admin    # 管理控制台
 npm run dev:auth     # 认证页面
 npm run dev:site     # 公开站点

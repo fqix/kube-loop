@@ -11,7 +11,7 @@ controlPlane:
   replicas: 1
   logLevel: info
   development:
-    # Local-only runtime preset for Wails and disposable clusters. Authorization
+    # Local-only runtime preset for desktop development and disposable clusters. Authorization
     # is still database-managed and deny-by-default.
     enabled: false
   image:

@@ -67,7 +67,7 @@ signal; each subscriber has a one-element latest-snapshot mailbox. A slow or
 paused desktop therefore drops intermediate snapshots and receives the newest
 state without blocking the shared informer. Watches end at the access-token
 expiry boundary, and the desktop reconnects with refreshed credentials. The
-Wails bridge applies only exact profile/namespace events to the active page.
+desktop IPC bridge applies only exact profile/namespace events to the active page.
 
 ## Consequences
 

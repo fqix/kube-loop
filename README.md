@@ -205,20 +205,31 @@ Requirements:
 
 - Go version declared in [`go.mod`](go.mod)
 - Node.js 22+
-- Platform prerequisites for [Wails](https://wails.io/docs/gettingstarted/installation)
+- Electron is fetched by `npm ci` at the repository root; Linux packaging additionally needs `rpm` for RPM output
 
 ```bash
-make build          # build the desktop app
+npm ci              # desktop application (Electron + React renderer)
+make desktop-build  # build the Go backend, sing-box and the Electron shell
+make desktop-package # produce installers under build/desktop-package/
 make test-local     # run non-E2E tests and vet
 make vulncheck      # check Go dependencies for known vulnerabilities
 ```
 
-Useful frontend commands:
+Desktop application (repository root, [electron-vite](https://electron-vite.org) layout:
+`src/main`, `src/preload`, `src/renderer` → `out/`):
+
+```bash
+npm run dev          # local dev stack + Go backend + Electron with HMR
+npm run dev:shell    # Electron + renderer only (backend must already be in build/bin)
+npm run typecheck
+npm test
+```
+
+Browser frontends:
 
 ```bash
 cd frontend
 npm ci
-npm run dev          # desktop frontend
 npm run dev:admin    # admin console
 npm run dev:auth     # auth page
 npm run dev:site     # public website

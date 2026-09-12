@@ -1,31 +1,25 @@
+// Command kube-loop is the desktop backend. The Electron shell in src/main
+// launches it as a child process and speaks JSON-RPC
+// over stdin/stdout; the process has no window or tray of its own.
 package main
 
 import (
+	"context"
 	"embed"
 	"log"
 	"log/slog"
 	"os"
-	goruntime "runtime"
-	"strings"
-
-	"github.com/wailsapp/wails/v2"
-	"github.com/wailsapp/wails/v2/pkg/options"
-	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
-	macoptions "github.com/wailsapp/wails/v2/pkg/options/mac"
+	"os/signal"
+	"syscall"
 
 	desktopapp "github.com/fqix/kube-loop/internal/app"
+	"github.com/fqix/kube-loop/internal/desktopipc"
 	internalLogging "github.com/fqix/kube-loop/internal/logging"
 )
 
-//go:embed all:frontend/dist
-var assets embed.FS
-
-//go:embed build/appicon.png
-var trayIcon []byte
-
 // The README keeps the pattern valid for ordinary source builds. Release and
 // IDE builds generate the platform helper in this directory before compiling
-// the desktop application.
+// the desktop backend.
 //
 //go:embed build/embedded/*
 var embeddedHelperFiles embed.FS
@@ -33,65 +27,50 @@ var embeddedHelperFiles embed.FS
 var version = "dev"
 
 func main() {
+	// stdout carries the protocol; everything that logs goes to stderr so a
+	// stray print can never corrupt a frame.
+	protocolOut := os.Stdout
+	os.Stdout = os.Stderr
 	jsonLogger := slog.New(internalLogging.WithContext(slog.NewJSONHandler(os.Stderr, nil)))
 	slog.SetDefault(jsonLogger)
 	log.SetOutput(slog.NewLogLogger(jsonLogger.Handler(), slog.LevelInfo).Writer())
-	// The tray and Wails windows must be created on the same native UI thread.
-	goruntime.LockOSThread()
 
-	app := desktopapp.NewApp(version, embeddedHelperFiles)
-	tray := desktopapp.New(app, trayIcon)
-	err := wails.Run(&options.App{
-		Title:             "KubeLoop",
-		Width:             1080,
-		Height:            720,
-		Frameless:         goruntime.GOOS != "darwin",
-		HideWindowOnClose: true,
-		SingleInstanceLock: &options.SingleInstanceLock{
-			UniqueId: "dev.fengqi.kube-loop",
-			OnSecondInstanceLaunch: func(instance options.SecondInstanceData) {
-				for _, argument := range instance.Args {
-					if !strings.HasPrefix(strings.ToLower(argument), "kubeloop://") {
-						continue
-					}
-					if deliverAuthCallback(app, argument) {
-						break
-					}
-				}
-				desktopapp.ShowWindow(app)
-			},
-		},
-		Mac: &macoptions.Options{
-			TitleBar: macoptions.TitleBarHidden(),
-			OnUrlOpen: func(rawURL string) {
-				deliverAuthCallback(app, rawURL)
-			},
-		},
-		AssetServer:      &assetserver.Options{Assets: assets},
-		OnStartup:        desktopapp.StartupHandler(app),
-		OnShutdown:       desktopapp.ShutdownHandler(app),
-		Bind:             []any{app},
-		BackgroundColour: &options.RGBA{R: 15, G: 23, B: 42, A: 1},
-	})
-	goruntime.UnlockOSThread()
-	if err != nil {
-		desktopapp.Remove(tray)
+	if err := run(protocolOut, jsonLogger); err != nil {
 		log.Fatal(err)
 	}
 }
 
-type authCallbackHandler interface {
-	HandleAuthCallbackURL(string) error
-}
+func run(protocolOut *os.File, logger *slog.Logger) error {
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
 
-func deliverAuthCallback(handler authCallbackHandler, rawURL string) bool {
-	if handler == nil {
-		log.Print("OAuth callback rejected: callback handler is unavailable")
-		return false
+	app := desktopapp.NewApp(version, embeddedHelperFiles)
+	dispatcher := desktopipc.NewDispatcher()
+	if err := dispatcher.Bind(app, "SetHost", "Close"); err != nil {
+		return err
 	}
-	if err := handler.HandleAuthCallbackURL(rawURL); err != nil {
-		log.Printf("OAuth callback rejected: %v", err)
-		return false
+	shutdownOnce := make(chan struct{}, 1)
+	shutdown := func(shutdownContext context.Context) {
+		select {
+		case shutdownOnce <- struct{}{}:
+			desktopapp.ShutdownHandler(app)(shutdownContext)
+		default:
+		}
 	}
-	return true
+	server := desktopipc.NewServer(
+		dispatcher, os.Stdin, protocolOut,
+		desktopipc.WithLogger(logger),
+		desktopipc.WithShutdownHandler(shutdown),
+	)
+	app.SetHost(server)
+	desktopapp.StartupHandler(app)(ctx)
+
+	err := server.Serve(ctx)
+	// The shell may vanish without a shutdown request (crash, SIGKILL); run
+	// the same cleanup so TUN sessions and intercepts are restored.
+	shutdown(context.WithoutCancel(ctx))
+	if err != nil && ctx.Err() == nil {
+		return err
+	}
+	return nil
 }

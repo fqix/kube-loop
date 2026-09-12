@@ -2,6 +2,7 @@ package app
 
 import (
 	"errors"
+	"path/filepath"
 	"testing"
 )
 
@@ -64,7 +65,7 @@ func TestHostReceivesShellCalls(t *testing.T) {
 		t.Fatalf("PickServerDownloadPath(file) = %q, %v", got, err)
 	}
 	got, err := application.PickServerDownloadPath("directory", "bundle")
-	if err != nil || got != "/tmp/parent/bundle" {
+	if err != nil || got != filepath.Join("/tmp/parent", "bundle") {
 		t.Fatalf("PickServerDownloadPath(directory) = %q, %v", got, err)
 	}
 	if len(host.events) != 1 || host.events[0] != "update:state" {

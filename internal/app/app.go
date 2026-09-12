@@ -12,7 +12,6 @@ import (
 	clientdiscovery "github.com/fqix/kube-loop/internal/client/discovery"
 	clientprofile "github.com/fqix/kube-loop/internal/client/profile"
 	"github.com/fqix/kube-loop/internal/helper"
-	"github.com/fqix/kube-loop/internal/supervisor"
 	"github.com/fqix/kube-loop/internal/update"
 	"github.com/fqix/kube-loop/internal/utils"
 )
@@ -31,7 +30,6 @@ func newApp(version string, embeddedHelperFiles fs.FS, dependencies appDependenc
 	registerEmbeddedHelpers(embeddedHelperFiles)
 	if version != "" {
 		helper.Version = version
-		supervisor.Version = version
 	}
 	var developmentTLSConfig *tls.Config
 	var developmentTLSErr error

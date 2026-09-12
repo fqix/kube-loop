@@ -11,17 +11,10 @@ import (
 	"github.com/fqix/kube-loop/internal/helper"
 )
 
-const (
-	helperServiceName     = "kubeloop-helper"
-	supervisorServiceName = "kubeloop-supervisor"
-)
+const helperServiceName = "kubeloop-helper"
 
 func LocateBundledHelper() (string, error) {
 	return locateBundledTool(helperServiceName)
-}
-
-func LocateBundledSupervisor() (string, error) {
-	return locateBundledTool(supervisorServiceName)
 }
 
 func locateBundledTool(baseName string) (string, error) {

@@ -1,15 +1,13 @@
 Release and IDE builds place platform-specific helper binaries here before
-building the desktop application:
+building the desktop backend:
 
 - `kubeloop-helper[.exe]` — privileged service
-- `kubeloop-supervisor` — stable macOS privileged worker updater
 - Windows uses the same `kubeloop-helper.exe` for service, install, and uninstall operations.
 
-The desktop binary embeds them and materializes verified copies under
+The desktop backend embeds them and materializes verified copies under
 `~/.kubeloop/cache/components/<version>/<os>-<arch>/` (or the isolated
 `~/.kubeloop-dev` tree for development builds).
 
-The first macOS install authorizes both services. Later exact worker updates are
-streamed to the stable supervisor and do not display another administrator
-password prompt. Automatic TUN startup may still reuse a healthy development
-worker when no exact update was requested.
+Installing or replacing the helper always goes through the platform's
+administrator authorization. Automatic TUN startup may reuse a healthy
+development helper when no exact update was requested.

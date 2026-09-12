@@ -16,7 +16,33 @@ func launchdPlistPath() string {
 	return "/Library/LaunchDaemons/" + helper.ServiceLabel() + ".plist"
 }
 
+// legacySupervisorLabel is the LaunchDaemon that older desktop builds
+// installed next to the helper (ADR 0023). Its update channel was removed;
+// installs and uninstalls remove any leftover so it cannot keep replacing
+// the helper binary underneath the current install.
+func legacySupervisorLabel() string {
+	if helper.IsDevBuild() {
+		return "dev.fengqi.kubeloop.supervisor.dev"
+	}
+	return "dev.fengqi.kubeloop.supervisor"
+}
+
+func removeLegacySupervisor() {
+	label := legacySupervisorLabel()
+	plistPath := "/Library/LaunchDaemons/" + label + ".plist"
+	//nolint:gosec // label is selected from fixed service identifiers.
+	_ = exec.Command("launchctl", "bootout", "system/"+label).Run()
+	_ = exec.Command("launchctl", "unload", "-w", plistPath).Run()
+	_ = os.Remove(plistPath)
+	_ = os.Remove("/Library/PrivilegedHelperTools/" + label)
+	for _, name := range []string{"supervisor.json", "supervisor.lock", "supervisor.sock"} {
+		_ = os.Remove(filepath.Join(helper.SystemStateDir(), name))
+		_ = os.Remove(filepath.Join(filepath.Dir(helper.SocketPath()), name))
+	}
+}
+
 func enableService(binaryPath string) error {
+	removeLegacySupervisor()
 	label := helper.ServiceLabel()
 	plistPath := launchdPlistPath()
 	logPath := helper.HelperLogPath()
@@ -65,6 +91,7 @@ func enableService(binaryPath string) error {
 }
 
 func disableService() error {
+	removeLegacySupervisor()
 	label := helper.ServiceLabel()
 	plistPath := launchdPlistPath()
 	//nolint:gosec // label is selected from fixed helper service identifiers.

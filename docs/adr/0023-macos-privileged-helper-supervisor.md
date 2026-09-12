@@ -1,6 +1,6 @@
 # ADR 0023：macOS 特权 Helper Supervisor 与无重复授权更新
 
-- 状态：Accepted（dev Phase 0-4 已实现；release Phase 5 待完成）
+- 状态：Superseded（2026-09-12 由 ADR 0026 撤销；Supervisor 已从代码库移除）
 - 日期：2026-08-14
 - 决策范围：macOS Desktop、开发/E2E helper 更新、正式包升级
 

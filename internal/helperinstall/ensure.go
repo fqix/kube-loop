@@ -17,7 +17,7 @@ var (
 
 // EnsureInstall makes the helper available for automatic TUN startup. Release
 // builds always require the installed binary to match the bundled helper. Dev
-// builds reuse a healthy, protocol-compatible helper so wails dev does not
+// builds reuse a healthy, protocol-compatible helper so `npm run dev` does not
 // request administrator authorization after every helper rebuild.
 func EnsureInstall(ctx context.Context) error {
 	return ensureInstall(ctx, false)
@@ -83,7 +83,7 @@ func decideHelperInstall(ctx context.Context, requireCurrentBinary bool) (helper
 	}
 	if canReuseInstalledHelper(
 		status, helper.Version, helperrpc.Version, enforceBinaryMatch, needsBinaryUpdate,
-	) && !requiresSupervisorCheck(enforceBinaryMatch) {
+	) {
 		return helperInstallDecision{}, nil
 	}
 	if locateErr != nil {

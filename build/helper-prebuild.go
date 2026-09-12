@@ -9,8 +9,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
-
-	"github.com/fqix/kube-loop/internal/protocol/supervisor"
 )
 
 func main() {
@@ -42,13 +40,6 @@ func main() {
 		version string
 	}{
 		{pkg: "./cmd/kubeloop-helper", name: "kubeloop-helper", version: version},
-	}
-	if goos == "darwin" {
-		targets = append(targets, struct {
-			pkg     string
-			name    string
-			version string
-		}{pkg: "./cmd/kubeloop-supervisor", name: "kubeloop-supervisor", version: supervisor.BinaryVersion})
 	}
 
 	embeddedDir := filepath.Join(root, "build", "embedded")

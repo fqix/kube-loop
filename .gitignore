@@ -25,4 +25,3 @@ e2e/oidc/node_modules/
 .DS_Store
 *.idea/
 *.tsbuildinfo
-build/embedded/kubeloop-supervisor*

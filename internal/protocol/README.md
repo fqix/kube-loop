@@ -32,8 +32,6 @@ Current contracts:
 - `streamframe`: the frame layout shared by `exchangestream` and
   `mirrorstream`. An implementation detail of those contracts, not a contract
   of its own.
-- `supervisor`: length-prefixed JSON framing for the privileged-helper
-  supervisor channel.
 - `trafficcontrol`: traffic operation request/response contracts (modes,
   identity binding, claim requests) and their wire paths. The resolved
   service/port model they reference lives in `internal/controlplane/entity`.

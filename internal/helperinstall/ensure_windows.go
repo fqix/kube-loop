@@ -4,8 +4,6 @@ package helperinstall
 
 import "context"
 
-func requiresSupervisorCheck(bool) bool { return false }
-
 func installCurrentHelper(
 	ctx context.Context,
 	source, sourceSHA256, token string,
